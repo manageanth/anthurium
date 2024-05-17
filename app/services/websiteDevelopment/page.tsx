@@ -10,6 +10,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import serviceStyles from "../servicesStyles.module.css"
+import ShowServiceIntro from '@/components/services/ShowServiceIntro'
 
 export default function Page() {
     const currentService = servicesData.find(eachService => eachService.name === "Website Development")
@@ -19,12 +20,7 @@ export default function Page() {
         <main className={serviceStyles.mainDiv} style={{ display: "grid", padding: "1rem" }}>
             <ServiceTitle name={"Website Development"} />
 
-            {/* <h2>Detailed Description</h2> */}
-            <div style={{ display: "flex" }}>
-                <Image alt={`${currentService.name} alt`} src={currentService.image} width={1000} height={1000} style={{ objectFit: "contain", flex: "1 1 300px", }} />
-
-                <p style={{ flex: "1 1 300px", padding: "1rem" }}>Our Next.js web development service combines cutting-edge technology with strategic design to create web applications that exceed client expectations. We leverage the power of Next.js, to build robust, scalable, and SEO-friendly web apps that perform exceptionally well across devices. <br /><br /> From custom features to complex functionalities, we ensure every aspect of your web app aligns with your business objectives.</p>
-            </div>
+            <ShowServiceIntro service={currentService} />
 
             <h2>Key Features</h2>
             <ShowKeyFeatures features={["SEO-friendly architecture for improved visibility and search engine rankings", "Server-side rendering for faster loading times and enhanced user experience", "Support for dynamic content and real-time updates", "Seamless integration with APIs and third-party services", "Scalable solutions to accommodate future growth and expansion"]} />
