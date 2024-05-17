@@ -8,7 +8,7 @@ export const sendEmail = async (seenForm: userForm) => {
 
         await resend.emails.send({
             from: "onboarding@resend.dev",
-            to: "info@anthsolutions.com",
+            to: "manageanth@gmail.com",
             subject: `new customer inquiry from - ${seenForm.name}`,
             react: <EmailTemplate seenForm={seenForm} />,
         });
