@@ -1,0 +1,9 @@
+.pricingTable {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    padding: 1rem;
+}
+
+.pricingTable>ul {
+    text-transform: capitalize;
+}

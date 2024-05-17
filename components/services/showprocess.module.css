@@ -1,0 +1,7 @@
+.stepCounter {
+    transition: translate 400ms;
+}
+
+.stepCont:hover .stepCounter {
+    translate: -50%;
+}

@@ -1,0 +1,271 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+:root {
+    --primaryColor: #e52b50;
+    --secondaryColor: #F4F7FC;
+    --tertiaryColor: #0582f0;
+    --backgroundColor: #252628;
+    --fadedWhite: #ddd;
+    --fadedWhite2: #777;
+    --fadedTextColor: #111;
+
+
+    --largeFontSize: 2rem;
+    --mediumFontSize: 1.3rem;
+    --smallFontSize: .7rem;
+}
+
+
+
+/* element styels */
+.noScrollBar::-webkit-scrollbar {
+    display: none;
+}
+
+*,
+*::before,
+*::after {
+    /* border: 1px solid red !important; */
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--backgroundColor);
+}
+
+*::-webkit-scrollbar {
+    height: .2rem;
+    width: .2rem;
+}
+
+*::-webkit-scrollbar-track {
+    background-color: #ffffff;
+
+}
+
+h1 {
+    font-weight: bold;
+    font-size: var(--largeFontSize);
+    text-transform: capitalize;
+}
+
+h2 {
+    font-size: var(--mediumFontSize);
+    font-weight: bold;
+}
+
+h3 {
+    font-weight: bold;
+}
+
+p {
+    /* max-width: 50ch; */
+}
+
+svg {
+    width: 1rem;
+    aspect-ratio: 1/1;
+    transition: scale 600ms;
+}
+
+svg:hover {
+    scale: 1.1
+}
+
+input,
+textarea {
+    padding: 1rem;
+    background-color: var(--secondaryColor);
+    border-radius: .2rem;
+    border: 1px solid #ddd;
+}
+
+input:focus,
+textarea:focus {
+    background-color: #fff;
+    outline: none;
+}
+
+.mainButton {
+    background-color: var(--primaryColor);
+    border-radius: .5rem;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 1rem 2rem;
+    transition: filter 400ms;
+}
+
+.mainButton:hover {
+    filter: brightness(.8);
+}
+
+.secondaryButton {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: .2rem;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 1rem 2rem;
+    transition: background-color 400ms, color 400ms;
+
+}
+
+.secondaryButton>svg {
+    fill: #fff
+}
+
+.secondaryButton:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+.secondaryButton:hover>svg {
+    fill: #000
+}
+
+
+.thirdButton {
+    text-transform: capitalize;
+    background-color: var(--secondaryColor);
+    text-transform: uppercase;
+    color: #000;
+    font-weight: bold;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    padding-left: 1rem;
+    transition: background-color 400ms, color 400ms;
+
+}
+
+
+.thirdButton svg {
+    fill: #fff
+}
+
+.thirdButton>div {
+    background-color: var(--primaryColor);
+    transition: background-color 400ms;
+}
+
+.thirdButton:hover>div {
+    background-color: #000
+}
+
+
+.thirdButton:hover {
+    background-color: var(--primaryColor);
+    color: #fff;
+}
+
+
+
+section {
+    padding: 2rem 1rem;
+}
+
+
+
+
+/* custom styels */
+
+.resizeSvg>svg {
+    width: 100%;
+    aspect-ratio: 1/1;
+}
+
+
+.highlight {
+    color: var(--primaryColor);
+    fill: var(--primaryColor);
+}
+
+.hoverHighlight:hover {
+    transition: color 400ms, fill 400ms;
+}
+
+.hoverHighlight:hover {
+    color: var(--primaryColor);
+    fill: var(--primaryColor);
+}
+
+.noDisplay {
+    display: none;
+}
+
+.fadeIn {
+    animation: fadeIn calc(var(--fadeTime, 1s)) both;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.slideInCont {
+    overflow: hidden;
+}
+
+.slideIn {
+    position: relative;
+    animation: slideIn 1s both;
+    transform-origin: bottom left;
+}
+
+@keyframes slideIn {
+    0% {
+        translate: 0 100%;
+    }
+
+    100% {
+        translate: 0 0%;
+    }
+}
+
+
+.supportingTitle1 {
+    text-transform: uppercase;
+    position: relative;
+    justify-self: flex-start;
+}
+
+.supportingTitle1::before {
+    content: "";
+    position: absolute;
+    top: -0.5rem;
+    left: 0;
+    width: 100%;
+    border-top: solid 2px #fff;
+    text-transform: uppercase;
+}
+
+.supportingTitle2 {
+    text-transform: uppercase;
+    color: var(--primaryColor);
+    font-weight: bold;
+}
+
+.snap {
+    scroll-snap-type: x mandatory;
+}
+
+.snap>* {
+    scroll-snap-align: start;
+}
+
+.reset * {
+    all: unset;
+}
+
+.hide {
+    display: none !important;
+}
