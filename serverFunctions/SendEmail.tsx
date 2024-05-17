@@ -4,11 +4,11 @@ import { Resend } from 'resend';
 
 export const sendEmail = async (seenForm: userForm) => {
     try {
-        const resend = new Resend('re_6e8Av29e_6HNqzVjeSyB1Z9HmFVW39wU6');
+        const resend = new Resend('re_aV1iEwhV_5Nx4riVLzm6z7up7J7DRJTub');
 
         await resend.emails.send({
             from: "onboarding@resend.dev",
-            to: "manageanth@gmail.com",
+            to: "info@anthsolutions.com",
             subject: `new customer inquiry from - ${seenForm.name}`,
             react: <EmailTemplate seenForm={seenForm} />,
         });
