@@ -1788,14 +1788,14 @@ export default function Home() {
         <HowItWorks />
       </section>
 
-      <section>
+      {/* <section>
         <div style={{ textAlign: "center", display: "grid", justifyItems: "center" }}>
           <p className='supportingTitle2'>Our Testimonials</p>
           <h1>We Deliver Solutions, built on trust</h1>
         </div>
 
         <DisplayTestimonials />
-      </section>
+      </section> */}
 
       <section>
         <div style={{ textAlign: "center", display: "grid", justifyItems: "center" }}>
