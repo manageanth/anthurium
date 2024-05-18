@@ -13,7 +13,7 @@ export default function Page() {
                     <h1>What we provide</h1>
                 </div>
 
-                <div style={{ display: "grid", gap: "1rem", gridTemplateColumns: "repeat(auto-fill, minmax(min(300px, 100%), 1fr))", padding: "1rem" }}>
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(300px, 100%), 1fr))", borderBottom: "1px solid #000", borderRight: "1px solid #000" }}>
                     {servicesData.map((eachService, eachServiceIndex) => {
                         return (
                             <ShowService key={eachServiceIndex} service={eachService} />
