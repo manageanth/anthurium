@@ -11,6 +11,7 @@ import Link from 'next/link'
 import React from 'react'
 import serviceStyles from "../servicesStyles.module.css"
 import ShowServiceIntro from '@/components/services/ShowServiceIntro'
+import ShowService from '@/components/services/ShowService'
 
 export default function Page() {
     const currentService = servicesData.find(eachService => eachService.name === "Website Development")
@@ -85,7 +86,7 @@ export default function Page() {
                 <button className='mainButton'>Get Started</button>
             </Link>
 
-            <h2>Related services</h2>
+            {/* <h2>Related services</h2>
             <div style={{ display: "grid", gap: "1rem", gridAutoColumns: "min(300px, 100%)", gridAutoFlow: "column", padding: "1rem", overflowX: "auto" }}>
                 {servicesData.filter(eachService => eachService.name !== "Website Development").map((eachService, eachServiceIndex) => {
                     return (
@@ -98,6 +99,14 @@ export default function Page() {
 
                             <ThirdButton link={eachService.link} text='Read More' />
                         </div>
+                    )
+                })}
+            </div> */}
+
+            <div style={{ marginTop: "1rem", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(300px, 100%), 1fr))", borderBottom: "1px solid #000", borderRight: "1px solid #000" }}>
+                {servicesData.filter(eachService => eachService.name !== "Website Development").map((eachService, eachServiceIndex) => {
+                    return (
+                        <ShowService key={eachServiceIndex} service={eachService} startHovering={eachServiceIndex === 0} />
                     )
                 })}
             </div>

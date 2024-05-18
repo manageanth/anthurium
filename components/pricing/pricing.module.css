@@ -1,9 +1,15 @@
 .pricingTable {
     display: grid;
-    grid-template-rows: auto 1fr;
+    align-content: flex-start;
+    gap: .5rem;
+    border: 2px solid var(--faded3);
     padding: 1rem;
+    border-radius: 1rem;
+    transition: border 300ms;
+    position: relative;
 }
 
-.pricingTable>ul {
-    text-transform: capitalize;
+.pricingTable:hover,
+.pricingTableHovering {
+    border: 2px solid var(--primaryColor);
 }

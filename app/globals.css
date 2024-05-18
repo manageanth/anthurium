@@ -9,14 +9,20 @@
     --secondaryColor: #F4F7FC;
     --tertiaryColor: #0582f0;
     --backgroundColor: #252628;
+
     --fadedWhite: #ddd;
     --fadedWhite2: #777;
+    --faded3: #aaa;
     --fadedTextColor: #111;
 
 
+    --largerFontSize: 2.3rem;
     --largeFontSize: 2rem;
     --mediumFontSize: 1.3rem;
     --smallFontSize: .7rem;
+
+    --largeIconSize: 3rem;
+    --smallIconSize: 1.2rem;
 }
 
 
