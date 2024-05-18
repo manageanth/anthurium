@@ -4,7 +4,7 @@ import Image from 'next/image'
 import React, { useEffect, useRef, useState } from 'react'
 import { useInView } from 'react-intersection-observer'
 
-export default function MyMetrics({ svg, amount, amountAdd, text, animateTime = 2500, stepper = 1 }: { svg: JSX.Element, amount: number, amountAdd: string, text: string, animateTime?: number, stepper?: number }) {
+export default function MyMetrics({ icon, amount, amountAdd, text, animateTime = 2500, stepper = 1 }: { icon: JSX.Element, amount: number, amountAdd: string, text: string, animateTime?: number, stepper?: number }) {
     const { ref, inView } = useInView()
 
     const [animateAmount, animateAmountSet] = useState(0)
@@ -38,9 +38,7 @@ export default function MyMetrics({ svg, amount, amountAdd, text, animateTime = 
 
     return (
         <div ref={ref} style={{ display: "flex", flexWrap: "wrap", gap: "1rem", }}>
-            <div style={{ padding: "1rem", border: "1px solid var(--primaryColor)", borderRadius: ".9rem", display: "grid", alignItems: "center", justifyItems: "center" }} >
-                {svg}
-            </div>
+            {icon}
 
             <div style={{ flex: 1, color: "var(--primaryColor)" }}>
                 <p style={{ fontSize: "var(--largeFontSize)", fontWeight: "bold" }}>{animateAmount}{amountAdd}</p>

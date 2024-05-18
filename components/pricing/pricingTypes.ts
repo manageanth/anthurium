@@ -79,25 +79,25 @@ export type pricingTable = {
 export const pricingTables: pricingTable[] = [
     {
         planName: "basic",
-        shortDescription: "Recommended for basic landing pages",
+        shortDescription: "Kickstart your online presence with a streamlined Landing Page, perfect for capturing leads and showcasing your brand",
         pricing: 150,
         features: [{ id: "pageAmt", modifier: "1 page" }, { id: "hostingTime", modifier: "1 year" }, { id: "domainName" }, { id: "cms" }, { id: "socialLinks" }, { id: "seo" }],
     },
     {
         planName: "small website",
-        shortDescription: "Make A strong impression and facilitate customer connections",
+        shortDescription: "Elevate your digital footprint and engage visitors with detailed pages about your business.",
         pricing: 400,
         features: [{ id: "pageAmt", modifier: "3 page" }, { id: "hostingTime", modifier: "1 year" }, { id: "domainName" }, { id: "cms" }, { id: "socialLinks" }, { id: "seo" }, { id: "googleBusiness" }, { id: "businessStrategy" }, { id: "analytics" }],
     },
     {
         planName: "medium website",
-        shortDescription: "Handle all your client's needs",
+        shortDescription: "Ideal for growing businesses, our Medium Website package delivers a robust online platform with advanced features and e-commerce capabilities",
         pricing: 800,
         features: [{ id: "pageAmt", modifier: "5 page" }, { id: "hostingTime", modifier: "2 years" }, { id: "domainName" }, { id: "cms" }, { id: "socialLinks" }, { id: "seo" }, { id: "graphicDesign" }, { id: "businessStrategy" }, { id: "analytics" }, { id: "marketing" }, { id: "googleBusiness" }, { id: "techSupport" }, { id: "revisions", modifier: "3" }, { id: "authentication" }],
     },
     {
         planName: "large website",
-        shortDescription: "Custom software Integration to fit any need",
+        shortDescription: "Transform your business with our Large Website package, featuring custom software solutions tailored to meet your unique needs and scale with your success.",
         pricing: 1000,
         features: [{ id: "pageAmt", modifier: "9 page" }, { id: "hostingTime", modifier: "4 years" }, { id: "domainName" }, { id: "cms" }, { id: "socialLinks" }, { id: "seo" }, { id: "graphicDesign" }, { id: "businessStrategy" }, { id: "analytics" }, { id: "marketing" }, { id: "googleBusiness" }, { id: "techSupport" }, { id: "revisions", modifier: "unlimited" }, { id: "apiCreation" }, { id: "databaseCreation" }, { id: "authentication" }],
     },

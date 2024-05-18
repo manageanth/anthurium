@@ -2,7 +2,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styles from "./pricing.module.css"
 import { pricingFeatures, pricingTable, pricingTables } from './pricingTypes'
-import { formatter } from '@/utility/globalState'
 import FourthButton from '../fourthButton/FourthButton'
 
 export default function Pricing() {
@@ -13,7 +12,7 @@ export default function Pricing() {
     }
 
     return (
-        <div ref={containerRef} className='snap' style={{ display: "grid", gap: "1rem", gridAutoFlow: "column", gridAutoColumns: "300px", overflowX: "auto", marginBlock: "1rem", padding: "1rem", scrollBehavior: "smooth" }}>
+        <div ref={containerRef} className={`${styles.container} snap`} style={{ display: "grid", gap: "1rem", gridAutoFlow: "column", gridAutoColumns: "300px", overflowX: "auto", marginTop: "1rem", padding: "1rem", scrollBehavior: "smooth" }}>
             {pricingTables.map((eachTable, eachTableIndex) => {
                 return (
                     <DisplayPricingTable key={eachTableIndex} pricingTable={eachTable} startHovering={eachTableIndex === 2} recommended={eachTableIndex === 2} scrollToRecommended={scrollToRecommended} />
@@ -36,17 +35,17 @@ function DisplayPricingTable({ pricingTable, startHovering, recommended, scrollT
 
     return (
         <div ref={pricingTableRef} className={`${styles.pricingTable} ${hovering && styles.pricingTableHovering}`} style={{}} onMouseEnter={() => { hoveringSet(true) }} onMouseLeave={() => { hoveringSet(false) }}>
-            <div className={styles.gradient} style={{ position: "absolute", top: 0, left: 0, bottom: 0, right: 0, backgroundImage: "linear-gradient(var(--primaryColor), transparent, transparent,  var(--primaryColor))", filter: "blur(5px)", scale: 1.2, transformOrigin: "top", translate: "0 -1rem" }}></div>
+            <div className={styles.gradient} style={{ position: "absolute", top: 0, left: 0, bottom: 0, right: 0, backgroundImage: "linear-gradient(to bottom left, var(--primaryColor), transparent,transparent,transparent, var(--primaryColor))", transformOrigin: "top", translate: "0 -1rem", filter: "blur(5px)", scale: 1.3 }}></div>
 
-            <p className={styles.changeColor} style={{ textTransform: "capitalize", fontSize: "var(--mediumFontSize)" }}>{pricingTable.planName}</p>
+            <p style={{ textTransform: "capitalize", fontSize: "var(--mediumFontSize)", fontWeight: "var(--mediumeFontWeight)" }}>{pricingTable.planName}</p>
 
             {recommended && (
                 <p style={{ position: "absolute", top: 0, right: 0, margin: "1rem", backgroundColor: "var(--primaryColor)", color: "#fff", padding: ".5rem", fontSize: "var(--smallFontSize)", borderRadius: "1rem", fontWeight: "bold" }}>Bestseller</p>
             )}
 
-            <p className={styles.changeColor} style={{ minHeight: "50px" }}>{pricingTable.shortDescription}</p>
+            <p style={{ minHeight: "120px" }}>{pricingTable.shortDescription}</p>
 
-            <div className={styles.changeColor} style={{ display: "flex", fontSize: "var(--largerFontSize)", alignItems: "center" }}>
+            <div style={{ display: "flex", fontSize: "var(--largerFontSize)", alignItems: "center" }}>
                 {pricingTable.pricing >= 1000 && (
                     <p style={{ fontSize: "var(--smallFontSize)" }}>From</p>
                 )}

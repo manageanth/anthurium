@@ -19,6 +19,8 @@
     --faded3: #aaa;
     --fadedTextColor: #111;
 
+    --mediumeFontWeight: 500;
+
 
     --largerFontSize: 2.3rem;
     --largeFontSize: 2rem;
@@ -39,7 +41,7 @@
 *,
 *::before,
 *::after {
-    /* border: 1px solid red !important; */
+    border: 1px solid red !important;
 }
 
 *::-webkit-scrollbar-thumb {
