@@ -99,7 +99,7 @@ export const pricingTables: pricingTable[] = [
         planName: "large website",
         shortDescription: "Custom software Integration to fit any need",
         pricing: 1000,
-        features: [{ id: "pageAmt", modifier: "9 page" }, { id: "hostingTime", modifier: "3 years" }, { id: "domainName" }, { id: "cms" }, { id: "socialLinks" }, { id: "seo" }, { id: "graphicDesign" }, { id: "businessStrategy" }, { id: "analytics" }, { id: "marketing" }, { id: "googleBusiness" }, { id: "techSupport" }, { id: "revisions", modifier: "unlimited" }, { id: "apiCreation" }, { id: "databaseCreation" }, { id: "authentication" }],
+        features: [{ id: "pageAmt", modifier: "9 page" }, { id: "hostingTime", modifier: "4 years" }, { id: "domainName" }, { id: "cms" }, { id: "socialLinks" }, { id: "seo" }, { id: "graphicDesign" }, { id: "businessStrategy" }, { id: "analytics" }, { id: "marketing" }, { id: "googleBusiness" }, { id: "techSupport" }, { id: "revisions", modifier: "unlimited" }, { id: "apiCreation" }, { id: "databaseCreation" }, { id: "authentication" }],
     },
 ]
 
