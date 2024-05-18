@@ -5,7 +5,6 @@ import styles from "./showService.module.css"
 import Image from 'next/image'
 import ThirdButton from '../thirdButton/ThirdButton'
 import Link from 'next/link'
-import DefaultSvg from '../DefaultSvg'
 
 export default function ShowService({ service, startHovering }: { service: service, startHovering?: boolean }) {
     const [hovering, hoveringSet] = useState(startHovering ?? false)
@@ -19,7 +18,7 @@ export default function ShowService({ service, startHovering }: { service: servi
             </div>
 
             <div style={{ position: "relative", zIndex: 1 }}>
-                <DefaultSvg style={{ width: "50px", height: "50px" }} />
+                {/* <DefaultSvg style={{ width: "50px", height: "50px" }} /> */}
 
                 <h3>{service.name}</h3>
 
