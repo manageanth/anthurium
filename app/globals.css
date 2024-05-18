@@ -139,7 +139,6 @@ textarea:focus {
     overflow: hidden;
     padding-left: 1rem;
     transition: background-color 400ms, color 400ms;
-
 }
 
 
@@ -158,6 +157,16 @@ textarea:focus {
 
 
 .thirdButton:hover {
+    background-color: var(--primaryColor);
+    color: #fff;
+}
+
+.thirdButtonHovering>div {
+    background-color: #000
+}
+
+
+.thirdButtonHovering {
     background-color: var(--primaryColor);
     color: #fff;
 }

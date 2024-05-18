@@ -13,6 +13,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import styles from "./page.module.css"
+import ShowService from '@/components/services/ShowService'
 
 export default function Home() {
   return (
@@ -1694,30 +1695,18 @@ export default function Home() {
         </div>
       </section>
 
-      <section style={{ backgroundColor: "var(--secondaryColor)" }}>
-        <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem", justifyContent: "center", alignItems: "center" }}>
-          <div style={{ flex: "1 1 300px" }}>
-            <p className='supportingTitle2'>our services</p>
-            <h1>What We Provide</h1>
-          </div>
-
-          <div style={{ flex: "4 1 300px", display: "grid", alignContent: "flex-start", gap: "1rem", }}>
-            <p style={{ maxWidth: "75ch" }}>At AnthSolutions we specialize in delivering cutting-edge digital solutions tailored to your business needs. From innovative website development to seamless mobile app solutions, we offer a comprehensive suite of services designed to elevate your online presence.</p>
-          </div>
+      <section style={{ backgroundColor: "var(--secondaryColor)", display: "grid" }}>
+        <div style={{ display: "grid", justifyItems: "center" }}>
+          <p className='supportingTitle2'>our services</p>
+          <h1>What Do You Need?</h1>
         </div>
 
-        <div className='snap' style={{ overflowX: "auto", display: "grid", gap: "1rem", gridAutoFlow: "column", gridAutoColumns: "min(400px, 100%)", marginTop: "1rem" }}>
+        <p style={{ maxWidth: "75ch", justifySelf: "center", textAlign: 'center' }}>From innovative website development to seamless mobile app solutions we specialize in delivering cutting-edge digital solutions tailored to your business needs.</p>
+
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(300px, 100%), 1fr))", width: "min(800px, 100%)", justifySelf: "center", marginTop: "1rem", borderBottom: "1px solid #000", borderRight: "1px solid #000" }}>
           {servicesData.map((eachService, eachServiceIndex) => {
             return (
-              <div key={eachServiceIndex} style={{ borderRadius: "1rem", display: "flex", flexDirection: "column", gap: "1rem", padding: "1rem", alignContent: "flex-start", backgroundColor: "#fff" }}>
-                <Image alt={`${eachService.name}'s image`} src={eachService.image} height={400} width={400} style={{ objectFit: "cover", width: "100%", height: "300px", borderRadius: "1rem", }} />
-
-                <h2>{eachService.name}</h2>
-
-                <p style={{ flex: 1 }}>{eachService.shortSummary}</p>
-
-                <ThirdButton link={eachService.link} text='Read More' />
-              </div>
+              <ShowService key={eachServiceIndex} service={eachService} startHovering={eachServiceIndex === 0} />
             )
           })}
         </div>

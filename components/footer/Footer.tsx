@@ -26,17 +26,8 @@ export default function Footer() {
                         title: "Resources",
                         links: [
                             {
-                                name: "Guides & Tutorials",
-                                link: "/guides"
-                            }
-                        ]
-                    },
-                    {
-                        title: "Community",
-                        links: [
-                            {
-                                name: "blogs",
-                                link: "/blog"
+                                name: "Privacy Policy",
+                                link: "/privacyPolicy"
                             }
                         ]
                     },
@@ -44,8 +35,12 @@ export default function Footer() {
                         title: "Company",
                         links: [
                             {
-                                name: "Our Story",
+                                name: "About Us",
                                 link: "/aboutUs"
+                            },
+                            {
+                                name: "blogs",
+                                link: "/blog"
                             }
                         ]
                     },
@@ -77,10 +72,10 @@ export default function Footer() {
                 })}
             </ul>
 
-            <div style={{ padding: "1rem", marginTop: "1rem", borderTop: "1px solid var(--fadedWhite2)", display: "flex", flexWrap: "wrap", justifyContent: "space-between", gap: "1rem" }}>
+            <div style={{ padding: "1rem", borderTop: "1px solid var(--fadedWhite2)", display: "flex", justifyContent: "center", gap: "1rem" }}>
                 <p>Copyright © Anthurium all rights reserved.</p>
 
-                <ul style={{ display: "flex", flexWrap: 'wrap', gap: "1rem" }}>
+                {/* <ul style={{ display: "flex", flexWrap: 'wrap', gap: "1rem" }}>
                     {[{
                         link: "/aboutUs",
                         name: "About Us"
@@ -97,7 +92,7 @@ export default function Footer() {
                             <Link href={eachLink.link} key={eachLinkIndex}>{eachLink.name}</Link>
                         )
                     })}
-                </ul>
+                </ul> */}
             </div>
         </footer>
     )
