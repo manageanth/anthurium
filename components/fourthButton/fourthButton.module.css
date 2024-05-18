@@ -13,6 +13,6 @@
 .button:hover,
 .buttonHovering {
     color: #fff;
-    border: 2px solid #fff;
+    border: 2px solid transparent;
     background-color: var(--primaryColor);
 }

@@ -36,15 +36,17 @@ function DisplayPricingTable({ pricingTable, startHovering, recommended, scrollT
 
     return (
         <div ref={pricingTableRef} className={`${styles.pricingTable} ${hovering && styles.pricingTableHovering}`} style={{}} onMouseEnter={() => { hoveringSet(true) }} onMouseLeave={() => { hoveringSet(false) }}>
-            <p style={{ textTransform: "capitalize", fontSize: "var(--mediumFontSize)" }}>{pricingTable.planName}</p>
+            <div className={styles.gradient} style={{ position: "absolute", top: 0, left: 0, bottom: 0, right: 0, backgroundImage: "linear-gradient(var(--primaryColor), transparent, transparent,  var(--primaryColor))", filter: "blur(5px)", scale: 1.2, transformOrigin: "top", translate: "0 -1rem" }}></div>
+
+            <p className={styles.changeColor} style={{ textTransform: "capitalize", fontSize: "var(--mediumFontSize)" }}>{pricingTable.planName}</p>
 
             {recommended && (
                 <p style={{ position: "absolute", top: 0, right: 0, margin: "1rem", backgroundColor: "var(--primaryColor)", color: "#fff", padding: ".5rem", fontSize: "var(--smallFontSize)", borderRadius: "1rem", fontWeight: "bold" }}>Bestseller</p>
             )}
 
-            <p style={{ minHeight: "50px" }}>{pricingTable.shortDescription}</p>
+            <p className={styles.changeColor} style={{ minHeight: "50px" }}>{pricingTable.shortDescription}</p>
 
-            <div style={{ display: "flex", fontSize: "var(--largerFontSize)", alignItems: "center" }}>
+            <div className={styles.changeColor} style={{ display: "flex", fontSize: "var(--largerFontSize)", alignItems: "center" }}>
                 {pricingTable.pricing >= 1000 && (
                     <p style={{ fontSize: "var(--smallFontSize)" }}>From</p>
                 )}

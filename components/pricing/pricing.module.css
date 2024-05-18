@@ -7,9 +7,31 @@
     border-radius: 1rem;
     transition: border 300ms;
     position: relative;
+    overflow: hidden;
+}
+
+.gradient {
+    opacity: 0;
+    transition: opacity 400ms;
+    z-index: -1;
+}
+
+.changeColor {
+    transition: color 400ms;
 }
 
 .pricingTable:hover,
 .pricingTableHovering {
     border: 2px solid var(--primaryColor);
+
+}
+
+.pricingTable:hover .changeColor,
+.pricingTableHovering .changeColor {
+    color: #fff;
+}
+
+.pricingTable:hover .gradient,
+.pricingTableHovering .gradient {
+    opacity: 1;
 }
