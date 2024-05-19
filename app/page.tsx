@@ -14,11 +14,12 @@ import Link from 'next/link'
 import React from 'react'
 import styles from "./page.module.css"
 import ShowService from '@/components/services/ShowService'
+import AnimateIntroText from '@/components/animateIntroText/AnimateIntroText'
 
 export default function Home() {
   return (
     <main>
-      <div className={styles.graphicCont} style={{ height: "300px", overflow: "hidden", position: "relative", display: "grid", alignItems: 'center', justifyItems: "center" }}>
+      <div className={styles.graphicCont} style={{ minHeight: "400px", overflow: "hidden", position: "relative", display: "grid", alignItems: 'center', justifyItems: "center" }}>
         <svg className={styles.graphic1} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
 
           <path
@@ -373,7 +374,7 @@ export default function Home() {
           />
         </svg>
 
-        <h1 style={{ backgroundColor: "rgba(255,255,255,0.8)", zIndex: 1, padding: "0 1rem", textAlign: "center" }}>WE BUILD WEBSITES!</h1>
+        <AnimateIntroText />
 
         <svg className={styles.graphic2} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
           <ellipse
@@ -1623,7 +1624,7 @@ export default function Home() {
 
             <p>Whether you require scalable applications, intuitive user interfaces, or robust backend systems, We provide end-to-end software solutions tailored to meet your unique needs. </p>
 
-            <div className='snap' style={{ overflowX: "auto", display: "grid", gap: "1rem", gridAutoFlow: "column", gridTemplateRows: "1fr 1fr", gridAutoColumns: "50ch", paddingBlock: "1rem" }}>
+            <div className='snap' style={{ overflowX: "auto", display: "grid", gap: "1rem", gridAutoFlow: "column", gridTemplateRows: "1fr 1fr", gridAutoColumns: "min(50ch, 100%)", paddingBlock: "1rem" }}>
               {[
                 {
                   title: "Professional IT Services",
