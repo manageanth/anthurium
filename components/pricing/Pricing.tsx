@@ -65,7 +65,7 @@ function DisplayPricingTable({ pricingTable, startHovering, recommended, scrollT
                     if (tableContainsFeature === undefined) return null
 
                     return (
-                        <li key={eachFeatureIndex} style={{ display: "flex", gap: ".3rem" }}>
+                        <li key={eachFeatureIndex} style={{ display: "flex", gap: ".3rem", textTransform: "capitalize" }}>
                             <div style={{ position: "relative", aspectRatio: "1/1", }}>
                                 <div style={{ aspectRatio: "1/1", backgroundColor: "var(--primaryColor)", position: "absolute", top: 0, left: 0, bottom: 0, right: 0, zIndex: -1, borderRadius: "50%", opacity: .05, scale: 1.2 }}></div>
 
