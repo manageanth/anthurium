@@ -5,6 +5,7 @@ import Link from 'next/link'
 import React from 'react'
 import ShowService from './ShowService'
 import styles from "./displayOtherServiceInfo.module.css"
+import DisplayProjects from '../projects/DisplayProjects'
 
 export default function DisplayOtherServiceInfo({ service }: { service: service }) {
     return (
@@ -24,21 +25,6 @@ export default function DisplayOtherServiceInfo({ service }: { service: service 
                     )
                 })}
             </ul>
-
-
-            {projectsData.filter(eachProject => eachProject.representingService.includes(service.name)).length > 0 && (
-                <>
-                    <h2>Portfolio</h2>
-
-                    <div>
-                        {projectsData.filter(eachProject => eachProject.representingService.includes(service.name)).map(eachProject => {
-                            return (
-                                <div key={eachProject.slug}>{eachProject.name}</div>
-                            )
-                        })}
-                    </div>
-                </>
-            )}
 
             <h2>Technlogy used</h2>
 
@@ -82,6 +68,14 @@ export default function DisplayOtherServiceInfo({ service }: { service: service 
             <Link href={"/contact"} style={{ justifySelf: "center", marginTop: "1rem" }}>
                 <button className='mainButton'>Get Started</button>
             </Link>
+
+            {projectsData.filter(eachProject => eachProject.representingService.includes(service.name)).length > 0 && (
+                <>
+                    <h2 style={{ marginBottom: ".5rem" }}>{service.name} projects</h2>
+
+                    <DisplayProjects seenProjectData={projectsData.filter(eachProject => eachProject.representingService.includes(service.name))} />
+                </>
+            )}
 
             <h2>Related services</h2>
 

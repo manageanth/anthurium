@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="260" height="260" viewBox="0 0 260 260">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 58.333px;
+        font-family: Rubik;
+        font-weight: 700;
+      }
+
+      .cls-2 {
+        fill: #e52b50;
+      }
+    </style>
+  </defs>
+  <text id="Anth-Solutions" class="cls-1" transform="translate(13.78 141.18) scale(0.52)">Anth<tspan class="cls-2">-Solutions</tspan></text>
+</svg>

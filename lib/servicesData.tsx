@@ -25,7 +25,7 @@ export const servicesData: service[] = [
         link: "/services/websiteDevelopment",
         icon: <span style={{ fontSize: "var(--largeIconSize)" }} className="material-symbols-outlined">computer</span>,
         keyFeatures: ["SEO-friendly architecture for improved visibility and search engine rankings", "Server-side rendering for faster loading times and enhanced user experience", "Support for dynamic content and real-time updates", "Seamless integration with APIs and third-party services", "Scalable solutions to accommodate future growth and expansion"],
-        technologyUsed: ["Next.js", "React.js", "Node.js", "GraphQL", "Tailwind CSS"],
+        technologyUsed: ["Next.js", "React.js", "Node.js", "GraphQL", "Tailwind CSS", "Typescript", "Html / Css / Javascript"],
         process: [
             {
                 stepName: "Discovery & Planning",
