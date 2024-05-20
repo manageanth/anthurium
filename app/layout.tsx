@@ -11,10 +11,18 @@ const rubik = Rubik({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Anth-Solutions - Expert Web Development & Mobile App Solutions | Next.js & React Native Specialists",
   description: "Anth-Solutions is a leading web development agency specializing in high-performance Next.js websites and seamless React Native mobile app solutions. Our expert team delivers tailored digital experiences, from custom e-commerce platforms to robust software solutions. Contact us to elevate your online presence",
+
   openGraph: {
     title: "Anth-Solutions - Expert Web Development & Mobile App Solutions",
     description: "Anth-Solutions is a leading web development agency specializing in high-performance Next.js websites and seamless React Native mobile app solutions.",
-    images: require(`@/public/logo.svg`).default.src
+    // images: [require(`@/public/logo.svg`).default.src]
+    images: {
+      url: require(`@/public/logo.svg`).default.src, // Must be an absolute URL
+      width: 1800,
+      height: 1600,
+      alt: 'logo',
+    },
+
   }
 };
 
