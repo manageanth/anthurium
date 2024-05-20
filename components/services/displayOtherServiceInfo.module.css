@@ -33,7 +33,6 @@
     flex-direction: row;
     justify-self: flex-start;
     background: linear-gradient(to left, var(--primaryColor), var(--tertiaryColor));
-
     padding: 1rem;
     padding-right: 2rem;
 }

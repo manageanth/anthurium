@@ -50,10 +50,9 @@ export default function DisplayOtherServiceInfo({ service }: { service: service 
                 })}
             </ul>
 
+            <h2 style={{ textAlign: "center", background: "linear-gradient(to left, var(--primaryColor), var(--tertiaryColor))", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", fontSize: 'var(--largerFontSize)' }}>Our Process</h2>
 
-            <h2 style={{ textAlign: "center", background: "linear-gradient(to left, var(--primaryColor), var(--tertiaryColor))", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", fontSize: 'var(--largerFontSize)' }}>Step By Step Process</h2>
-
-            <ul className='snap' style={{ display: "grid", width: "min(60ch, 80%)", margin: "0 auto" }}>
+            <ul className='snap' style={{ display: "grid", width: "min(60ch, 80%)", margin: "1rem auto" }}>
                 {service.process.map((eachStep, eachStepIndex) => {
                     return (
                         <li key={eachStepIndex} className={styles.process} style={{ filter: `hue-rotate(${eachStepIndex * 10}deg)` }}>
