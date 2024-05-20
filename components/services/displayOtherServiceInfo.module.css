@@ -1,12 +1,3 @@
-/* .stepCounter {
-    transition: translate 400ms;
-}
-
-.stepCont:hover .stepCounter {
-    translate: -50%;
-} */
-
-
 .process {
     --indentPercentage: 3%;
     width: fit-content;

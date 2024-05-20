@@ -56,7 +56,7 @@ export default function DisplayOtherServiceInfo({ service }: { service: service 
                 {service.process.map((eachStep, eachStepIndex) => {
                     return (
                         <li key={eachStepIndex} className={styles.process} style={{ filter: `hue-rotate(${eachStepIndex * 10}deg)` }}>
-                            <span style={{ flex: "0 1 auto", fontSize: "var(--largeIconSize)", margin: "0 auto" }} className="material-symbols-outlined">memory</span>
+                            {eachStep.icon}
 
                             <div style={{ flex: "1 1 30ch" }}>
                                 <h3>{eachStep.stepName}</h3>
@@ -67,14 +67,6 @@ export default function DisplayOtherServiceInfo({ service }: { service: service 
                     )
                 })}
             </ul>
-
-            {/* <li key={eachStepIndex} className={styles.stepCont} style={{ display: "grid", gap: ".5rem", position: "relative", padding: "1rem" }}>
-                            <div className={styles.stepCounter} style={{ color: "#fff", backgroundColor: "var(--primaryColor)", position: "absolute", top: 0, right: 0, padding: ".5rem 1rem" }}>{eachStepIndex + 1}</div>
-
-                            <h3>{eachStep.stepName}</h3>
-
-                            <p>{eachStep.step}</p>
-                        </li> */}
 
             {tesimonials.filter(eachTestimonial => eachTestimonial.forService.includes(service.name)).length > 0 && (
                 <>

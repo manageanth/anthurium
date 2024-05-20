@@ -14,6 +14,7 @@ export type service = {
 export type serviceProcess = {
     stepName: string,
     step: string,
+    icon: JSX.Element
 }
 
 export const servicesData: service[] = [
@@ -28,26 +29,32 @@ export const servicesData: service[] = [
         process: [
             {
                 stepName: "Discovery & Planning",
+                icon: <span style={{ flex: "0 1 auto", fontSize: "var(--largeIconSize)", margin: "0 auto" }} className="material-symbols-outlined">query_stats</span>,
                 step: "Understand client requirements and define project goals.",
             },
             {
                 stepName: "Design & Prototyping",
+                icon: <span style={{ flex: "0 1 auto", fontSize: "var(--largeIconSize)", margin: "0 auto" }} className="material-symbols-outlined">design_services</span>,
                 step: "Create wireframes and design mockups for client approval.",
             },
             {
                 stepName: "Development",
+                icon: <span style={{ flex: "0 1 auto", fontSize: "var(--largeIconSize)", margin: "0 auto" }} className="material-symbols-outlined">integration_instructions</span>,
                 step: "Implement features and functionality using Next.js and related technologies.",
             },
             {
                 stepName: "Testing",
+                icon: <span style={{ flex: "0 1 auto", fontSize: "var(--largeIconSize)", margin: "0 auto" }} className="material-symbols-outlined">check_box</span>,
                 step: "Conduct comprehensive testing to identify and fix any issues.",
             },
             {
                 stepName: "Deployment",
+                icon: <span style={{ flex: "0 1 auto", fontSize: "var(--largeIconSize)", margin: "0 auto" }} className="material-symbols-outlined">deployed_code</span>,
                 step: "Deploy the web app to production environment and ensure smooth launch.",
             },
             {
                 stepName: "Maintenance & Support",
+                icon: <span style={{ flex: "0 1 auto", fontSize: "var(--largeIconSize)", margin: "0 auto" }} className="material-symbols-outlined">headset_mic</span>,
                 step: "Provide ongoing maintenance and support to keep the web app running smoothly.",
             }
         ]
@@ -63,26 +70,32 @@ export const servicesData: service[] = [
         process: [
             {
                 stepName: "Discovery & Planning",
+                icon: <span style={{ flex: "0 1 auto", fontSize: "var(--largeIconSize)", margin: "0 auto" }} className="material-symbols-outlined">memory</span>,
                 step: "Understand client requirements and define app goals.",
             },
             {
                 stepName: "Design & Prototyping",
+                icon: <span style={{ flex: "0 1 auto", fontSize: "var(--largeIconSize)", margin: "0 auto" }} className="material-symbols-outlined">memory</span>,
                 step: "Create UI/UX wireframes and design mockups for client approval.",
             },
             {
                 stepName: "Development",
+                icon: <span style={{ flex: "0 1 auto", fontSize: "var(--largeIconSize)", margin: "0 auto" }} className="material-symbols-outlined">memory</span>,
                 step: "Implement features and functionality using React Native and related technologies.",
             },
             {
                 stepName: "Testing",
+                icon: <span style={{ flex: "0 1 auto", fontSize: "var(--largeIconSize)", margin: "0 auto" }} className="material-symbols-outlined">memory</span>,
                 step: "Conduct comprehensive testing to ensure app functionality and performance.",
             },
             {
                 stepName: "Deployment",
+                icon: <span style={{ flex: "0 1 auto", fontSize: "var(--largeIconSize)", margin: "0 auto" }} className="material-symbols-outlined">memory</span>,
                 step: "Deploy the app to respective app stores and ensure smooth launch.",
             },
             {
                 stepName: "Maintenance & Support",
+                icon: <span style={{ flex: "0 1 auto", fontSize: "var(--largeIconSize)", margin: "0 auto" }} className="material-symbols-outlined">memory</span>,
                 step: "Provide ongoing maintenance and support to keep the app up-to-date and bug-free.",
             }
         ]
@@ -98,22 +111,27 @@ export const servicesData: service[] = [
         process: [
             {
                 stepName: "Requirement Gathering",
+                icon: <span style={{ flex: "0 1 auto", fontSize: "var(--largeIconSize)", margin: "0 auto" }} className="material-symbols-outlined">memory</span>,
                 step: "Understand business goals and e-commerce requirements.",
             },
             {
                 stepName: "Design & Development",
+                icon: <span style={{ flex: "0 1 auto", fontSize: "var(--largeIconSize)", margin: "0 auto" }} className="material-symbols-outlined">memory</span>,
                 step: "Create user-friendly designs and develop e-commerce platform.",
             },
             {
                 stepName: "Integration & Testing",
+                icon: <span style={{ flex: "0 1 auto", fontSize: "var(--largeIconSize)", margin: "0 auto" }} className="material-symbols-outlined">memory</span>,
                 step: "Integrate payment gateways, test functionality, and security measures.",
             },
             {
                 stepName: "Launch & Optimization",
+                icon: <span style={{ flex: "0 1 auto", fontSize: "var(--largeIconSize)", margin: "0 auto" }} className="material-symbols-outlined">memory</span>,
                 step: "Deploy the platform and optimize for performance and SEO.",
             },
             {
                 stepName: "Maintenance & Support",
+                icon: <span style={{ flex: "0 1 auto", fontSize: "var(--largeIconSize)", margin: "0 auto" }} className="material-symbols-outlined">memory</span>,
                 step: "Provide ongoing maintenance and support to ensure smooth operation.",
             }
         ]
@@ -129,22 +147,27 @@ export const servicesData: service[] = [
         process: [
             {
                 stepName: "Requirement Analysis",
+                icon: <span style={{ flex: "0 1 auto", fontSize: "var(--largeIconSize)", margin: "0 auto" }} className="material-symbols-outlined">memory</span>,
                 step: "Gather and analyze business requirements to understand needs.",
             },
             {
                 stepName: "Design & Development",
+                icon: <span style={{ flex: "0 1 auto", fontSize: "var(--largeIconSize)", margin: "0 auto" }} className="material-symbols-outlined">memory</span>,
                 step: "Create customized software solutions tailored to client specifications.",
             },
             {
                 stepName: "Testing & Quality Assurance",
+                icon: <span style={{ flex: "0 1 auto", fontSize: "var(--largeIconSize)", margin: "0 auto" }} className="material-symbols-outlined">memory</span>,
                 step: "Thoroughly test software for functionality, performance, and security.",
             },
             {
                 stepName: "Deployment & Integration",
+                icon: <span style={{ flex: "0 1 auto", fontSize: "var(--largeIconSize)", margin: "0 auto" }} className="material-symbols-outlined">memory</span>,
                 step: "Deploy software and integrate with existing systems, ensuring seamless operation.",
             },
             {
                 stepName: "Maintenance & Support",
+                icon: <span style={{ flex: "0 1 auto", fontSize: "var(--largeIconSize)", margin: "0 auto" }} className="material-symbols-outlined">memory</span>,
                 step: "Provide ongoing maintenance and support to optimize software performance.",
             }
         ]
@@ -166,22 +189,27 @@ export const servicesData: service[] = [
         process: [
             {
                 stepName: "Initial Consultation",
+                icon: <span style={{ flex: "0 1 auto", fontSize: "var(--largeIconSize)", margin: "0 auto" }} className="material-symbols-outlined">memory</span>,
                 step: "Discuss client goals and current SEO standing.",
             },
             {
                 stepName: "SEO Audit & Strategy",
+                icon: <span style={{ flex: "0 1 auto", fontSize: "var(--largeIconSize)", margin: "0 auto" }} className="material-symbols-outlined">memory</span>,
                 step: "Conduct a thorough SEO audit and develop a tailored strategy.",
             },
             {
                 stepName: "Implementation",
+                icon: <span style={{ flex: "0 1 auto", fontSize: "var(--largeIconSize)", margin: "0 auto" }} className="material-symbols-outlined">memory</span>,
                 step: "Execute on-page and off-page SEO strategies.",
             },
             {
                 stepName: "Monitoring & Optimization",
+                icon: <span style={{ flex: "0 1 auto", fontSize: "var(--largeIconSize)", margin: "0 auto" }} className="material-symbols-outlined">memory</span>,
                 step: "Continuously monitor performance and refine SEO tactics.",
             },
             {
                 stepName: "Reporting & Analysis",
+                icon: <span style={{ flex: "0 1 auto", fontSize: "var(--largeIconSize)", margin: "0 auto" }} className="material-symbols-outlined">memory</span>,
                 step: "Provide regular reports and insights to track progress.",
             }
         ]
@@ -203,22 +231,27 @@ export const servicesData: service[] = [
         process: [
             {
                 stepName: "Consultation & Setup",
+                icon: <span style={{ flex: "0 1 auto", fontSize: "var(--largeIconSize)", margin: "0 auto" }} className="material-symbols-outlined">memory</span>,
                 step: "Discuss hosting needs and set up domain and hosting services.",
             },
             {
                 stepName: "Email & Contact Forms",
+                icon: <span style={{ flex: "0 1 auto", fontSize: "var(--largeIconSize)", margin: "0 auto" }} className="material-symbols-outlined">memory</span>,
                 step: "Configure business email and integrate contact forms.",
             },
             {
                 stepName: "Hosting Configuration",
+                icon: <span style={{ flex: "0 1 auto", fontSize: "var(--largeIconSize)", margin: "0 auto" }} className="material-symbols-outlined">memory</span>,
                 step: "Set up secure and scalable hosting environments.",
             },
             {
                 stepName: "Monitoring & Maintenance",
+                icon: <span style={{ flex: "0 1 auto", fontSize: "var(--largeIconSize)", margin: "0 auto" }} className="material-symbols-outlined">memory</span>,
                 step: "Provide ongoing monitoring and maintenance for optimal performance.",
             },
             {
                 stepName: "Support & Troubleshooting",
+                icon: <span style={{ flex: "0 1 auto", fontSize: "var(--largeIconSize)", margin: "0 auto" }} className="material-symbols-outlined">memory</span>,
                 step: "Offer 24/7 support and troubleshooting services.",
             }
         ]
