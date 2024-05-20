@@ -1620,7 +1620,9 @@ export default function Home() {
 
             <h1>Elevate your operations with our premium solutions</h1>
 
-            <p>From concept to deployment, our team ensures a seamless process, emphasizing quality, security, and a user-centric approach.</p>
+            <p>We are dedicated to providing exceptional user experiences, be it from e-commerce stores, mobile or web applications. Our team of experts is committed to delivering innovative solutions that drive your business forward.</p>
+
+            <p>From concept to deployment, our team ensures a seamless process, emphasizing quality and security.</p>
 
             <p>Whether you require scalable applications, intuitive user interfaces, or robust backend systems, We provide end-to-end software solutions tailored to meet your unique needs. </p>
 
@@ -1706,7 +1708,7 @@ export default function Home() {
 
         <p style={{ maxWidth: "75ch", justifySelf: "center", textAlign: 'center' }}>From innovative website development to seamless mobile app solutions we specialize in delivering cutting-edge digital solutions tailored to your business needs.</p>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(300px, 100%), 1fr))", width: "min(800px, 100%)", justifySelf: "center", marginTop: "1rem", borderBottom: "1px solid #000", borderRight: "1px solid #000" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(300px, 100%), 1fr))", width: "min(1000px, 100%)", justifySelf: "center", marginTop: "1rem", borderBottom: "1px solid #000", borderRight: "1px solid #000" }}>
           {servicesData.map((eachService, eachServiceIndex) => {
             return (
               <ShowService key={eachServiceIndex} service={eachService} startHovering={eachServiceIndex === 0} />
@@ -1793,6 +1795,8 @@ export default function Home() {
         <div style={{ textAlign: "center", display: "grid", justifyItems: "center" }}>
           <p className='supportingTitle2'>Our Blogs</p>
           <h1>Resources & Latest News</h1>
+
+          <p style={{ maxWidth: "75ch" }}>Stay updated with the latest trends in web development, SEO tips, and client success stories. Explore our blog for valuable insights and practical advice.</p>
         </div>
 
         <DisplayBlogs />

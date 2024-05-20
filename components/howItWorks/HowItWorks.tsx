@@ -12,24 +12,28 @@ export default function HowItWorks() {
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(200px, 100%), 1fr))", gap: "1rem", marginBlock: "1rem", justifySelf: 'stretch' }}>
                     {[
                         {
-                            title: "Contact Us",
-                            text: "Feel free to reach out to us through our website, phone or email.",
-                            img: "https://images.pexels.com/photos/789822/pexels-photo-789822.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                            title: "Initial Consultation",
+                            text: "We listen to your vision and requirements",
+                            img: require(`@/public/howitworks/consult.svg`).default.src
+                            // img: "https://images.pexels.com/photos/789822/pexels-photo-789822.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                         },
                         {
-                            title: "Consultation",
-                            text: "We'll schedule a consultation to understand your business, and vision for your project.",
-                            img: "https://cdn.pixabay.com/photo/2018/03/10/12/00/teamwork-3213924_1280.jpg"
+                            title: "Design and Development",
+                            text: "We craft custom designs and develop your website",
+                            img: require(`@/public/howitworks/design.svg`).default.src
+                            // img: "https://cdn.pixabay.com/photo/2018/03/10/12/00/teamwork-3213924_1280.jpg"
                         },
                         {
-                            title: "Quote & Proposal",
-                            text: "We'll provide a detailed quote outlining the scope of work, timeline and pricing for your project.",
-                            img: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                            title: "SEO and Marketing Implementation",
+                            text: "We ensure your website is SEO-friendly and ready for traffic",
+                            img: require(`@/public/howitworks/seo.svg`).default.src
+                            // img: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                         },
                         {
-                            title: "Website Development & Delivery",
-                            text: "Our expert team will build and deliver your website. Ensuring it meets your expectations and exceeds industry standards!",
-                            img: "https://images.pexels.com/photos/5905750/pexels-photo-5905750.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                            title: "Launch and Post-launch Support",
+                            text: "Your website is launched With continuous support, ensuring it runs efficiently 🎊",
+                            img: require(`@/public/howitworks/launch.svg`).default.src
+                            // img: "https://images.pexels.com/photos/5905750/pexels-photo-5905750.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                         },
                     ].map((eachItem, eachItemIndex) => {
                         return (

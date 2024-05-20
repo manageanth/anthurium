@@ -1,6 +1,7 @@
 "use client"
-import { useRef, useEffect } from "react"
+import { useRef, useEffect, useState } from "react"
 import styles from "./animateIntro.module.css"
+import { wait } from "@/useful/UsefulFunctions"
 
 export default function AnimateIntroText() {
     const textLines = useRef([
@@ -10,18 +11,14 @@ export default function AnimateIntroText() {
         },
         {
             text: "Trust us to handle everything from conceptualization to the final product",
-            supportingText: "Ensure your online presence is unmatched",
+            supportingText: "Let us ensure your online presence is unmatched",
             duration: 10000
         },
     ])
 
-    const headingContainerRef = useRef<HTMLHeadingElement>(null!)
-    const supportingTextContainerRef = useRef<HTMLHeadingElement>(null!)
-
-    //loop over the array
-    //put every word in the heading ref
-    //start the next timer when the duration is finished
-    //loop over again in an interval
+    const headingContainerRef = useRef<HTMLHeadingElement>(null)
+    const supportingTextContainerRef = useRef<HTMLHeadingElement>(null)
+    const [started, startedSet] = useState(false)
 
     //start things off
     const mounted = useRef(false)
@@ -30,9 +27,15 @@ export default function AnimateIntroText() {
         mounted.current = true
 
         startAnimation()
+        startedSet(true)
+
+        return () => {
+        }
     }, [])
 
     async function startAnimation() {
+        if (!headingContainerRef.current || !supportingTextContainerRef.current) return
+
         for (let index = 0; index < textLines.current.length; index++) {
             //clear all
             headingContainerRef.current.innerHTML = ""
@@ -66,11 +69,12 @@ export default function AnimateIntroText() {
             await wait(eachObj.duration)
         }
 
-
         startAnimation()
     }
 
     function createAndAppendWord(wordToAppend: string, index: number, type: "heading" | "support") {
+        if (!headingContainerRef.current || !supportingTextContainerRef.current) return
+
         const el = document.createElement(type === "heading" ? "div" : "p")
         el.innerText = wordToAppend
         el.style.animationDelay = `${index * (type === "heading" ? 400 : 200)}ms`
@@ -88,15 +92,12 @@ export default function AnimateIntroText() {
     }
 
     return (
-        <div style={{ width: "min(500px, 100%)", display: "grid", position: "relative", zIndex: 1, justifyItems: "center", padding: "1rem", backgroundColor: "rgba(255,255,255,0.9)", gap: ".5rrem" }}>
+        <div className={styles.main} style={{ width: "min(500px, 100%)", display: "grid", position: "relative", zIndex: 1, justifyItems: "center", padding: "1rem", backgroundColor: "rgba(255,255,255,0.9)", opacity: started ? 1 : 0, transition: "opacity 1s", gap: "1rem" }}>
             <h1 ref={headingContainerRef} style={{ display: "flex", flexWrap: "wrap", textTransform: "uppercase", }} ></h1>
 
-            <div ref={supportingTextContainerRef} style={{ display: "flex", gap: ".2rem", justifySelf: "flex-end", paddingRight: "1rem", fontWeight: "bold" }} ></div>
+            <div ref={supportingTextContainerRef} style={{ display: "flex", flexWrap: "wrap", gap: ".2rem", justifySelf: "flex-end", paddingRight: "1rem", fontWeight: "bold" }} ></div>
         </div>
     )
 }
 
 
-function wait(waitTime: number) {
-    return new Promise(resolve => { setTimeout(() => { resolve(true) }, waitTime) })
-}
