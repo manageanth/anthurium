@@ -16,12 +16,12 @@ export const metadata: Metadata = {
     title: "Anth-Solutions - Expert Web Development & Mobile App Solutions",
     description: "Anth-Solutions is a leading web development agency specializing in high-performance Next.js websites and seamless React Native mobile app solutions.",
     // images: [require(`@/public/logo.svg`).default.src]
-    images: {
+    images: [{
       url: require(`@/public/logo.svg`).default.src, // Must be an absolute URL
       width: 1800,
       height: 1600,
       alt: 'logo',
-    },
+    }],
 
   }
 };
