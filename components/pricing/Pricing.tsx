@@ -1,23 +1,137 @@
 "use client"
 import React, { useEffect, useRef, useState } from 'react'
 import styles from "./pricing.module.css"
-import { pricingFeatures, pricingTable, pricingTables } from './pricingTypes'
+import { pricingFeatures, pricingTable, pricingTables } from '../../lib/pricingData'
 import FourthButton from '../fourthButton/FourthButton'
 
 export default function Pricing() {
     const containerRef = useRef<HTMLDivElement>(null!)
+
+    const [viewingMore, viewingMoreSet] = useState(false)
 
     function scrollToRecommended(currentPosition: number) {
         containerRef.current.scrollLeft = currentPosition
     }
 
     return (
-        <div ref={containerRef} className={`${styles.container} snap`} style={{ display: "grid", gap: "1rem", gridAutoFlow: "column", gridAutoColumns: "300px", overflowX: "auto", marginTop: "1rem", padding: "1rem", scrollBehavior: "smooth" }}>
-            {pricingTables.map((eachTable, eachTableIndex) => {
-                return (
-                    <DisplayPricingTable key={eachTableIndex} pricingTable={eachTable} startHovering={eachTableIndex === 2} recommended={eachTableIndex === 2} scrollToRecommended={scrollToRecommended} />
-                )
-            })}
+        <div style={{ display: "grid" }}>
+
+            <div style={{ display: "grid", gap: "1rem", marginBlock: "1rem" }}>
+                <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "1rem", justifyContent: "center", }}>
+                    <p style={{}}>All plans include:</p>
+
+                    <ul style={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: "1rem" }}>
+                        {[
+                            {
+                                name: "Maintenance"
+                            },
+                            {
+                                name: "Hosting"
+                            }
+                        ].map((each, eachIndex) => {
+                            return (
+                                <li key={eachIndex} style={{ display: "flex", alignItems: "center", gap: ".5rem" }}>
+                                    <div style={{ width: "fit-content", aspectRatio: "1/1", display: "grid", alignItems: "center", justifyItems: "center", position: "relative" }}>
+                                        <div style={{ backgroundColor: "var(--primaryColor)", position: "absolute", top: 0, left: 0, bottom: 0, right: 0, zIndex: -1, borderRadius: "50%", opacity: .05, scale: 1.2 }}></div>
+
+                                        <span className="material-symbols-outlined" style={{ color: "var(--primaryColor)", fontSize: "var(--smallIconSize)" }}>check</span>
+                                    </div>
+
+                                    {each.name}
+                                </li>
+                            )
+                        })}
+                    </ul>
+                </div>
+
+                <button onClick={() => { viewingMoreSet(prev => !prev) }}>
+                    {viewingMore ? (
+                        <span style={{ fontSize: "var(--largeIconSize)" }} className="material-symbols-outlined closeButton">
+                            close
+                        </span>
+                    ) : "Learn More"}
+                </button>
+
+                {viewingMore && (
+                    <div className={styles.morePricingCont}>
+                        <h3 className='supportingTitle2'>Maintenance</h3>
+
+                        <ul className={styles.ruleCont}>
+                            {[
+                                {
+                                    rule: "Adding Text",
+                                    price: 0
+                                },
+                                {
+                                    rule: "Removing Content",
+                                    price: 0
+                                },
+                                {
+                                    rule: "Adding a sale / discount / holiday banner",
+                                    price: 0
+                                },
+                                {
+                                    rule: "Adding a page",
+                                    price: 50
+                                },
+                                {
+                                    rule: "Adding a section",
+                                    price: 20
+                                },
+                            ].map((each, eachIndex) => {
+                                return (
+                                    <li key={eachIndex}>
+                                        {each.rule}
+
+                                        {each.price === 0 ? <p style={{ fontWeight: "var(--mediumFontWeight)", textTransform: "uppercase", color: "var(--tertiaryColor)" }}>free</p> : (
+                                            <p className={styles.price}>
+                                                <span style={{ alignSelf: "flex-start" }} className="material-symbols-outlined">
+                                                    attach_money
+                                                </span>
+
+                                                {each.price}
+                                            </p>
+                                        )}
+                                    </li>
+                                )
+                            })}
+                        </ul>
+
+                        <h3 className='supportingTitle2'>Managed Hosting Cost</h3>
+                        <ul className={styles.ruleCont}>
+                            {pricingTables.map((eachPricingTable, eachPricingTableIndex) => {
+                                return (
+                                    <li key={eachPricingTableIndex}>
+                                        {eachPricingTable.planName}
+
+                                        <p className={styles.price}>
+                                            <span style={{ alignSelf: "flex-start" }} className="material-symbols-outlined">
+                                                attach_money
+                                            </span>
+
+                                            {eachPricingTable.managedHostingPrice}
+
+                                            <span>/mo</span>
+                                        </p>
+                                    </li>
+                                )
+                            })}
+                        </ul>
+
+                        <h3 className='supportingTitle2'>Independent Hosting Support</h3>
+                        <p><span style={{ color: "var(--tertiaryColor)", fontWeight: "var(--mediumFontWeight)" }}>Free assistance </span>when setting up your own hosting solution.</p>
+                    </div>
+                )}
+            </div>
+
+
+            <div ref={containerRef} className={`${styles.container} snap`} style={{ display: "grid", gap: "1rem", gridAutoFlow: "column", gridAutoColumns: "300px", overflowX: "auto", padding: "1rem", scrollBehavior: "smooth" }}>
+                {pricingTables.map((eachTable, eachTableIndex) => {
+                    return (
+                        <DisplayPricingTable key={eachTableIndex} pricingTable={eachTable} startHovering={eachTableIndex === 2} recommended={eachTableIndex === 2} scrollToRecommended={scrollToRecommended} />
+                    )
+                })}
+            </div>
         </div>
     )
 }

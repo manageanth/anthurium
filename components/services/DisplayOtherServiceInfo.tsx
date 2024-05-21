@@ -6,6 +6,7 @@ import React from 'react'
 import ShowService from './ShowService'
 import styles from "./displayOtherServiceInfo.module.css"
 import DisplayProjects from '../projects/DisplayProjects'
+import ShowServiceProcess from './ShowServiceProcess'
 
 export default function DisplayOtherServiceInfo({ service }: { service: service }) {
     return (
@@ -37,22 +38,7 @@ export default function DisplayOtherServiceInfo({ service }: { service: service 
             </ul>
 
             <h2 style={{ textAlign: "center", background: "linear-gradient(to left, var(--primaryColor), var(--tertiaryColor))", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", fontSize: 'var(--largerFontSize)' }}>Our Process</h2>
-
-            <ul className='snap' style={{ display: "grid", width: "min(60ch, 80%)", margin: "1rem auto" }}>
-                {service.process.map((eachStep, eachStepIndex) => {
-                    return (
-                        <li key={eachStepIndex} className={styles.process} style={{ filter: `hue-rotate(${eachStepIndex * 10}deg)` }}>
-                            {eachStep.icon}
-
-                            <div style={{ flex: "1 1 30ch" }}>
-                                <h3>{eachStep.stepName}</h3>
-
-                                <p style={{}}>{eachStep.step}</p>
-                            </div>
-                        </li>
-                    )
-                })}
-            </ul>
+            <ShowServiceProcess service={service} />
 
             {tesimonials.filter(eachTestimonial => eachTestimonial.forService.includes(service.name)).length > 0 && (
                 <>

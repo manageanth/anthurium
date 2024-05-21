@@ -8,6 +8,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/* 
+zindex rules
+
+nav: 99
+popout: 999
+important: 1000
+*/
+
 :root {
     --primaryColor: #e52b50;
     --secondaryColor: #F4F7FC;
@@ -20,11 +28,13 @@
     --fadedTextColor: #111;
 
     --mediumeFontWeight: 500;
+    --mediumFontWeight: 500;
 
 
     --largerFontSize: 2.3rem;
     --largeFontSize: 2rem;
     --mediumFontSize: 1.3rem;
+    --regularFontSize: 1rem;
     --smallFontSize: .7rem;
 
     --largeIconSize: 3rem;
@@ -55,6 +65,10 @@
 *::-webkit-scrollbar-track {
     background-color: #ffffff;
 
+}
+
+body {
+    font-size: var(--regularFontSize);
 }
 
 h1 {
@@ -221,6 +235,15 @@ section {
     animation: fadeIn calc(var(--fadeTime, 1s)) both;
 }
 
+.closeButton {
+    transition: color 200ms, rotate 200ms;
+}
+
+.closeButton:hover {
+    color: var(--primaryColor);
+    rotate: 10deg;
+}
+
 @keyframes fadeIn {
     0% {
         opacity: 0;
@@ -250,6 +273,37 @@ section {
         translate: 0 0%;
     }
 }
+
+.slideFromRight {
+    position: relative;
+    animation: slideFromRight 1s both;
+}
+
+@keyframes slideFromRight {
+    0% {
+        translate: 100vw 0;
+    }
+
+    100% {
+        translate: 0 0;
+    }
+}
+
+.slideFromLeft {
+    position: relative;
+    animation: slideFromLeft 1s both;
+}
+
+@keyframes slideFromLeft {
+    0% {
+        translate: -100vw 0;
+    }
+
+    100% {
+        translate: 0 0;
+    }
+}
+
 
 
 .supportingTitle1 {
