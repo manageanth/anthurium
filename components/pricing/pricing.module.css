@@ -85,3 +85,8 @@
     font-weight: normal;
     text-transform: none;
 }
+
+
+.learnMore:hover {
+    text-decoration: underline;
+}

@@ -49,7 +49,7 @@ export default function Pricing() {
                         <span style={{ fontSize: "var(--largeIconSize)" }} className="material-symbols-outlined closeButton">
                             close
                         </span>
-                    ) : "Learn More"}
+                    ) : <p className={styles.learnMore} style={{ color: "var(--tertiaryColor)" }}>Learn More</p>}
                 </button>
 
                 {viewingMore && (
