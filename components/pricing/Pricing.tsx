@@ -26,6 +26,9 @@ export default function Pricing() {
                                 name: "Maintenance"
                             },
                             {
+                                name: "Marketing"
+                            },
+                            {
                                 name: "Hosting"
                             }
                         ].map((each, eachIndex) => {
@@ -49,7 +52,7 @@ export default function Pricing() {
                         <span style={{ fontSize: "var(--largeIconSize)" }} className="material-symbols-outlined closeButton">
                             close
                         </span>
-                    ) : <p className={styles.learnMore} style={{ color: "var(--tertiaryColor)" }}>Learn More</p>}
+                    ) : <p className={"hoverUnderline"} style={{ color: "var(--tertiaryColor)" }}>Learn More</p>}
                 </button>
 
                 {viewingMore && (
@@ -92,6 +95,27 @@ export default function Pricing() {
                                                 {each.price}
                                             </p>
                                         )}
+                                    </li>
+                                )
+                            })}
+                        </ul>
+
+                        <h3 className='supportingTitle2'>Marketing - Google / Facebook Ads</h3>
+                        <ul className={styles.ruleCont}>
+                            {pricingTables.map((eachPricingTable, eachPricingTableIndex) => {
+                                return (
+                                    <li key={eachPricingTableIndex}>
+                                        {eachPricingTable.planName}
+
+                                        <p className={styles.price}>
+                                            <span style={{ alignSelf: "flex-start" }} className="material-symbols-outlined">
+                                                attach_money
+                                            </span>
+
+                                            {eachPricingTable.marketingPrice}
+
+                                            <span>/mo</span>
+                                        </p>
                                     </li>
                                 )
                             })}

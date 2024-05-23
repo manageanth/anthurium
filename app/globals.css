@@ -343,3 +343,8 @@ section {
 .hide {
     display: none !important;
 }
+
+
+.hoverUnderline:hover {
+    text-decoration: underline;
+}
