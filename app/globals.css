@@ -75,6 +75,7 @@ h1 {
     font-weight: bold;
     font-size: var(--largeFontSize);
     text-transform: capitalize;
+
 }
 
 h2 {
@@ -336,14 +337,52 @@ section {
     scroll-snap-align: start;
 }
 
+
+
+
+
+
+
+
 .reset * {
     all: unset;
+    display: revert;
+    box-sizing: border-box;
 }
+
+.reset img,
+.reset svg {
+    display: block;
+}
+
+.reset img {
+    overflow: hidden;
+}
+
+.reset ul,
+.reset ol {
+    list-style: none;
+}
+
+.reset a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.reset .material-symbols-outlined {
+    cursor: pointer;
+}
+
+
+
+
+
+
 
 .hide {
     display: none !important;
 }
-
 
 .hoverUnderline:hover {
     text-decoration: underline;

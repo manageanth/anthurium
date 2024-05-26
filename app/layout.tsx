@@ -26,10 +26,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={rubik.className}>
-        <Toaster
+        {/* <Toaster
           position="top-center"
           reverseOrder={false}
-        />
+        /> */}
 
         <Nav menuInfoArr={[
           {

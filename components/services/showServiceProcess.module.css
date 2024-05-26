@@ -19,7 +19,7 @@
 }
 
 .process:hover {
-    transform: translateX(2.5vw)
+    transform: translateX(5vw)
 }
 
 .process:nth-of-type(even) {

@@ -12,7 +12,7 @@ export default function Services({ services }: { services: { name: string; image
                     <div key={eachserviceIndex} className={styles.serviceCont} style={{ position: "relative", cursor: "pointer" }}>
                         <p style={{ position: "absolute", top: 0, left: "100%", rotate: "90deg", whiteSpace: "nowrap", transformOrigin: "top left", translate: "20%" }}>{eachService.name}</p>
 
-                        <Image alt={`${eachService.name}'s image`} src={eachService.image} width={600} height={600} style={{ objectFit: "cover", width: "100%", height: "400px" }} />
+                        <Image alt={`${eachService.name}'s image`} src={eachService.image} width={600} height={600} style={{ objectFit: "cover", width: "100%", height: "400px", overflow: "hidden" }} />
                     </div>
                 )
             })}

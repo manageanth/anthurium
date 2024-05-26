@@ -1,0 +1,34 @@
+.main {
+    --extraLargeFontSize: calc(15vw + 1px);
+    --largeFontSize: 2rem;
+    --mediumFontSize: 20px;
+    --regularFontSize: 40px;
+    --smallFontSize: 30px;
+    --extraSmallFontSize: 8px;
+
+    --mediumIconSize: 2rem;
+
+    --color1: #FF2B59;
+    --color2: #F1FF4F;
+    --backgroundColor: #191926;
+
+
+
+
+    font-family: var(--lato);
+    font-size: var(--regularFontSize);
+    display: grid;
+    align-content: flex-start;
+    background-color: var(--backgroundColor);
+    color: #EBE2D0;
+    overflow-x: clip;
+}
+
+.main h1 {
+    font-family: var(--albertExtraBold);
+}
+
+
+.main section {
+    padding: 2rem 1rem;
+}

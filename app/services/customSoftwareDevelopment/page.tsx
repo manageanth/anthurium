@@ -14,7 +14,9 @@ export default function Page() {
                 service={currentService}
                 text={
                     <>
-                        Our Custom Software Development service empowers businesses by providing tailored solutions to automate processes, boost efficiency, and overcome specific challenges. From CRM systems to inventory management tools, we develop software that aligns perfectly with your unique requirements and business objectives. <br /><br /> Our expertise lies in understanding your needs and translating them into intuitive and scalable software solutions that drive growth and success.
+                        <p>Our Custom Software Development service empowers businesses by providing tailored solutions to automate processes, boost efficiency, and overcome specific challenges. From CRM systems to inventory management tools, we develop software that aligns perfectly with your unique requirements and business objectives.</p>
+
+                        <p>Our expertise lies in understanding your needs and translating them into intuitive and scalable software solutions that drive growth and success.</p>
                     </>
                 } />
 

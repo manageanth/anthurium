@@ -14,7 +14,9 @@ export default function Page() {
                 service={currentService}
                 text={
                     <>
-                        Our Mobile App Development service with React Native offers cutting-edge solutions for businesses seeking to establish a strong presence on iOS and Android platforms. Leveraging the versatility of React Native, we craft seamless and intuitive mobile apps that provide exceptional user experiences across devices. <br /><br /> From concept to deployment, we tailor each app to meet your unique requirements, ensuring that every feature aligns with your business goals. Whether you need a native app or cross-platform solution, we deliver high-quality mobile experiences that captivate your audience and drive success.
+                        <p>Our Mobile App Development service with React Native offers cutting-edge solutions for businesses seeking to establish a strong presence on iOS and Android platforms. Leveraging the versatility of React Native, we craft seamless and intuitive mobile apps that provide exceptional user experiences across devices.</p>
+
+                        <p>From concept to deployment, we tailor each app to meet your unique requirements, ensuring that every feature aligns with your business goals. Whether you need a native app or cross-platform solution, we deliver high-quality mobile experiences that captivate your audience and drive success.</p>
                     </>
                 } />
 

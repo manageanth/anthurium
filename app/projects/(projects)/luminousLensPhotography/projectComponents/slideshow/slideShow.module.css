@@ -4,24 +4,14 @@
 
 .buttonCont>button {
     border: 1px solid rgba(255, 255, 255, 0.3);
-    transition: border 400ms;
+    transition: border 400ms, color 400ms;
     padding: .5rem;
 }
 
-.buttonCont>button svg {
-    transition: fill 400ms;
-}
 
 .buttonCont>button:hover {
     border: 1px solid var(--color1);
-}
-
-.buttonCont>button:hover svg {
-    fill: var(--color1);
-}
-
-.buttonCont svg {
-    fill: #fff
+    color: var(--color1)
 }
 
 .opacity {

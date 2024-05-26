@@ -6,12 +6,15 @@
     --smallFontSize: .7rem;
     --extraSmallFontSize: 8px;
 
+    --mediumIconSize: 2rem;
+
     --color1: #9c5451;
     --color2: #181414;
     --color3: #181414;
     --backgroundColor: #181414;
     --gray1: #ddd;
     --gray2: hsl(0, 7%, 17%);
+
 
     /* styling */
     background-color: var(--backgroundColor);
@@ -44,6 +47,9 @@
     width: 1rem;
 }
 
+.main section {
+    padding: 2rem 1rem;
+}
 
 .heroCont {
     position: relative;

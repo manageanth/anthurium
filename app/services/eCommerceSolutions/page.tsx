@@ -14,7 +14,9 @@ export default function Page() {
                 service={currentService}
                 text={
                     <>
-                        Our E-commerce Solutions service is designed to help businesses establish and grow their online presence. We specialize in building robust e-commerce platforms that enable businesses to sell products or services online with ease. <br /><br /> We focus on integrating secure payment gateways, efficient order management systems, and personalized shopping experiences to ensure a seamless and secure online shopping environment for your customers.
+                        <p>Our E-commerce Solutions service is designed to help businesses establish and grow their online presence. We specialize in building robust e-commerce platforms that enable businesses to sell products or services online with ease.</p>
+
+                        <p>We focus on integrating secure payment gateways, efficient order management systems, and personalized shopping experiences to ensure a seamless and secure online shopping environment for your customers.</p>
                     </>
                 } />
 

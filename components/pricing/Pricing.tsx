@@ -101,6 +101,7 @@ export default function Pricing() {
                         </ul>
 
                         <h3 className='supportingTitle2'>Marketing - Google / Facebook Ads</h3>
+
                         <ul className={styles.ruleCont}>
                             {pricingTables.map((eachPricingTable, eachPricingTableIndex) => {
                                 return (
@@ -120,6 +121,9 @@ export default function Pricing() {
                                 )
                             })}
                         </ul>
+
+                        <p style={{ maxWidth: "75ch", marginTop: "1rem" }}>Our team excels at crafting compelling Ad Campaigns tailored to your business needs, ensuring your advertisements not only show results, but turn website visits into conversions.</p>
+
 
                         <h3 className='supportingTitle2'>Managed Hosting Cost</h3>
                         <ul className={styles.ruleCont}>

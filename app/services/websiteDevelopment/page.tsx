@@ -15,7 +15,9 @@ export default function Page() {
                 service={currentService}
                 text={
                     <>
-                        Our Next.js web development service combines cutting-edge technology with strategic design to create web applications that exceed client expectations. We leverage the power of Next.js, to build robust, scalable, and SEO-friendly web apps that perform exceptionally well across devices. <br /><br /> From custom features to complex functionalities, we ensure every aspect of your web app aligns with your business objectives.
+                        <p>Our Next.js web development service combines cutting-edge technology with strategic design to create web applications that exceed client expectations. We leverage the power of Next.js, to build robust, scalable, and SEO-friendly web apps that perform exceptionally well across devices.</p>
+
+                        <p>From custom features to complex functionalities, we ensure every aspect of your web app aligns with your business objectives.</p>
                     </>
                 } />
 

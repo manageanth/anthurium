@@ -1,6 +1,7 @@
 .itemCont {
     position: relative;
     cursor: pointer;
+    overflow: hidden;
 }
 
 .itemCont:hover>.fullscreenButton {
@@ -41,6 +42,7 @@
     translate: 0 -50%;
     padding: .5rem;
     transition: background-color 400ms;
+    aspect-ratio: 1/1;
 }
 
 .seekButton:hover {
