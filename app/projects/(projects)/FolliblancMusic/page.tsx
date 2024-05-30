@@ -13,7 +13,6 @@ import History from "./projectComponents/history/History"
 import Shop from "./projectComponents/shop/Shop"
 import Footer from "./projectComponents/footer/Footer"
 
-const infiniteScrollItems = ["New Drop!", "Listen Here!", <Logo />]
 export default function Page() {
 
     return (
