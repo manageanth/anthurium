@@ -79,7 +79,7 @@ export default function Page() {
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem", alignItems: "flex-start", justifyContent: "center", margin: "0 auto", maxWidth: "1000px" }}>
                     <Image alt="profile" width={1000} height={1000} src={"https://www.imreallyatrex.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Ftd2emhjj%2Fproduction%2Ff4e74acb616c77a9b7e3fd6fa42abb07818e85a5-1333x2000.jpg%3Frect%3D0%2C148%2C1333%2C1703%26w%3D900%26h%3D1150%26q%3D100%26fit%3Dclip%26auto%3Dformat&w=1920&q=75"} style={{ flex: "1 1 300px", width: "min(400px, 100%)", }} />
 
-                    <p style={{ flex: "1 1 300px", fontSize: "var(--smallFontSize)" }}>At 16, I left school in Barbados to become a professional musician. With three of my friends, we formed the band Cover Drive, and started our musical journey. From 2010-2018, we worked with top producers, scored three top tens on the UK official chart — including our #1 hit record, “Twilight." We earned platinum records, opened for Rihanna and Kelly Clarkson, toured the US college circuit (210 shows)</p>
+                    <p style={{ flex: "1 1 300px", fontSize: "var(--smallFontSize)" }}>At 16, I left school in Barbados to become a professional musician. With three of my friends, we formed the band Cover Drive, and started our musical journey. From 2010-2018, we worked with top producers, scored three top tens on the UK official chart — including our #1 hit record, &quot;Twilight.&quot; We earned platinum records, opened for Rihanna and Kelly Clarkson, toured the US college circuit (210 shows)</p>
                 </div>
             </section>
 
