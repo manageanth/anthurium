@@ -1,8 +1,14 @@
-.train {
+.track {
     animation: scroll var(--timeToLoop) infinite linear both;
 }
 
-.trainHover:hover {
+.train {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+}
+
+.trackHover:hover {
     animation-play-state: paused;
 }
 
@@ -14,6 +20,6 @@
 
 
     100% {
-        translate: var(--translateAmt) 0;
+        translate: -50% 0;
     }
 }

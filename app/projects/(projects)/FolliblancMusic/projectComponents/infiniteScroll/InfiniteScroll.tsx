@@ -1,39 +1,67 @@
-import React, { ReactNode, } from 'react'
+"use client"
+import React, { ReactNode, useMemo, } from 'react'
 import styles from "./infinitescroll.module.css"
 
 export default function InfiniteScroll(
     {
-        initialTimeToLoop = 10,
-        amountOfTrains = 2,
-        children,
-        trainProps,
+        timeToLoop = 10000,
+        amountOfCarts = 1,
         respondToHover = true,
+        items,
+        trainProps,
+        trainSpacing = "",
         ...elProps
     }: {
-        initialTimeToLoop?: number,
-        amountOfTrains?: number,
-        children: ReactNode,
-        trainProps?: React.HTMLAttributes<HTMLDivElement>
-        respondToHover?: boolean
+        timeToLoop?: number,
+        amountOfCarts?: number,
+        respondToHover?: boolean,
+        items: JSX.Element[],
+        trainSpacing?: string,
+        trainProps?: React.HtmlHTMLAttributes<HTMLDivElement>,
     } & React.HtmlHTMLAttributes<HTMLDivElement>) {
 
-    const timeToLoop = initialTimeToLoop * 1000
-    const amountToTranslate = 100 / amountOfTrains
+    const itemsArr = useMemo(() => {
+        const newArr: JSX.Element[] = []
+
+        for (let index = 0; index < amountOfCarts; index++) {
+            if (index > 0) {
+                const hiddenItems = items.map(eachItem => {
+                    return React.cloneElement(eachItem, { 'aria-hidden': true });
+                });
+
+                newArr.push(...hiddenItems);
+
+            } else {
+                newArr.push(...items)
+            }
+        }
+
+        return newArr
+    }, [items, amountOfCarts])
 
     return (
-        <div {...elProps} style={{ display: "grid", ...elProps?.style }}>
-            <div style={{ overflowX: "hidden" }}>
-                <div {...trainProps} className={`${styles.train} ${respondToHover && styles.trainHover} ${trainProps?.className}`} style={{ "--timeToLoop": `${timeToLoop}ms`, "--translateAmt": `-${amountToTranslate}%`, display: "flex", minWidth: "fit-content", ...trainProps?.style } as React.CSSProperties}>
-                    {new Array(amountOfTrains).fill("").map((eachArr, eachArrIndex) => {
+        <div {...elProps} style={{ overflowX: "hidden", ...elProps?.style }}>
+            <div className={`${styles.track} ${respondToHover && styles.trackHover}`} style={{ "--timeToLoop": `${timeToLoop}ms`, display: "flex", alignItems: "center", width: "fit-content", } as React.CSSProperties}>
+                <div  {...trainProps} className={`${styles.train} ${trainProps?.className}`}>
+                    {itemsArr.map((eachItem, eachItemIndex) => {
                         return (
-                            <React.Fragment key={eachArrIndex}>
-                                {children}
+                            <React.Fragment key={eachItemIndex}>
+                                {eachItem}
+                            </React.Fragment>
+                        )
+                    })}
+                </div>
+
+                <div  {...trainProps} className={`${styles.train} ${trainProps?.className}`} aria-hidden={true} >
+                    {itemsArr.map((eachItem, eachItemIndex) => {
+                        return (
+                            <React.Fragment key={eachItemIndex}>
+                                {eachItem}
                             </React.Fragment>
                         )
                     })}
                 </div>
             </div>
         </div>
-
     )
 }

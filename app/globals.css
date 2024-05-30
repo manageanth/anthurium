@@ -41,6 +41,9 @@ important: 1000
     --smallIconSize: 1.2rem;
 }
 
+html {
+    scroll-behavior: smooth;
+}
 
 /* element styels */
 .noScrollBar::-webkit-scrollbar {
@@ -360,7 +363,8 @@ section {
 }
 
 .reset ul,
-.reset ol {
+.reset ol,
+.reset li {
     list-style: none;
 }
 

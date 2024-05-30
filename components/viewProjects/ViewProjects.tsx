@@ -104,6 +104,7 @@ export default function ViewProjects({ children, ...elProps }: { children: React
                                 onClick={() => {
                                     if (navHidden) {
                                         controlNav("show")
+                                        window.scrollTo({ top: 0 })
                                     } else {
                                         controlNav("hide")
                                     }

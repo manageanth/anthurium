@@ -1,17 +1,17 @@
 .main {
     --extraLargeFontSize: calc(15vw + 1px);
-    --largeFontSize: 2rem;
-    --mediumFontSize: 20px;
-    --regularFontSize: 40px;
-    --smallFontSize: 30px;
+    --largeFontSize: clamp(40px, 7vw + 1px, 178px);
+    --mediumFontSize: 40px;
+    --regularFontSize: 30px;
+    --smallFontSize: 20px;
     --extraSmallFontSize: 8px;
 
-    --mediumIconSize: 2rem;
+    --mediumIconSize: 60px;
 
     --color1: #FF2B59;
     --color2: #F1FF4F;
     --backgroundColor: #191926;
-
+    --gray1: #EBE2D0;
 
 
 
@@ -20,7 +20,7 @@
     display: grid;
     align-content: flex-start;
     background-color: var(--backgroundColor);
-    color: #EBE2D0;
+    color: var(--gray1);
     overflow-x: clip;
 }
 
@@ -30,5 +30,60 @@
 
 
 .main section {
-    padding: 2rem 1rem;
+    padding: 4rem 1rem;
+}
+
+.headingCont {
+    position: relative;
+    display: grid;
+    justify-items: center;
+    z-index: 0;
+    margin-bottom: 4rem;
+}
+
+.headingCont>h1 {
+    font-size: var(--largeFontSize);
+}
+
+.headingCont>p:first-of-type {
+    text-transform: uppercase
+}
+
+.headingCont>img {
+    --translateFrom: 0 20%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+
+.textOutline {
+    --translateFrom: 0vw .5rem;
+}
+
+.topImageCont {
+    --scaleFrom: 0 1;
+    transform-origin: right;
+}
+
+
+@media only screen and (min-width: 800px) {
+    .topImageCont {
+        top: -4vw
+    }
+}
+
+
+
+
+.emailCont {
+    border-bottom: 1px solid var(--color1);
+    opacity: 1;
+    transition: opacity 400ms;
+}
+
+.emailCont:hover {
+    opacity: .6;
 }
