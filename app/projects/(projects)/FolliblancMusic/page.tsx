@@ -53,13 +53,13 @@ export default function Page() {
 
 
                 <Parallax style={{ width: "min(700px, 100%)", padding: "1rem", justifySelf: "center", fontSize: "var(--mediumFontSize)" }} speed={-.1}>
-                    <p>Yo! I&apos;m Rex. I&apos;m a Barbadian artist, songwriter / producer, and multi-instrumentalist. I&apos;m also one half of the production duo DreadHawk Productions with my former Cover Drive bandmate, Barry “Barman” Hill. Welcome to my official site! Browse, get to know me, snag some merch, and be sure to try out Jam mode!</p>
+                    <p>Yo! I&apos;m Rex. I&apos;m a Barbadian artist, songwriter / producer, and multi-instrumentalist. I&apos;m also one half of the production duo DreadHawk Productions with my former Cover Drive bandmate, Barry &quot;Barman&quot; Hill. Welcome to my official site! Browse, get to know me, snag some merch, and be sure to try out Jam mode!</p>
                 </Parallax>
             </>
 
             <Link href={""} style={{ rotate: "3deg", scale: 1.3, fontSize: "var(--smallFontSize)", whiteSpace: "nowrap", display: "grid", color: "var(--backgroundColor)", textTransform: "uppercase", fontFamily: "var(--albertExtraBold)" }}>
                 <InfiniteScroll
-                    items={[<p>New Drop!</p>, <p>Listen Here!</p>, <Logo />]}
+                    items={[<p key={0}>New Drop!</p>, <p key={1}>Listen Here!</p>, <Logo key={2} />]}
                     amountOfCarts={3}
                     timeToLoop={15000}
                     respondToHover={false}
