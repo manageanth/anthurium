@@ -5,19 +5,16 @@ import styles from "./page.module.css"
 import Parallax from "./projectComponents/parallax/Parallax"
 import InfiniteScroll from "./projectComponents/infiniteScroll/InfiniteScroll"
 import Link from "next/link"
-import Nav from "./projectComponents/nav/Nav"
 import AnimateBackgroundTile from "./projectComponents/animateBackgroundTile/AnimateBackgroundTile"
 import React from "react"
 import Logo from "./projectComponents/logo/Logo"
 import History from "./projectComponents/history/History"
 import Shop from "./projectComponents/shop/Shop"
-import Footer from "./projectComponents/footer/Footer"
 
 export default function Page() {
 
     return (
-        <div className={styles.main}>
-            <Nav />
+        <main className={styles.main}>
 
             <>
                 {/* distortion effect */}
@@ -80,7 +77,7 @@ export default function Page() {
 
                     <p style={{ flex: "0 1 350px", fontSize: "var(--smallFontSize)", fontWeight: "bold", animation: "translate both linear", animationTimeline: "view()", "--translateFrom": "0 20%" } as React.CSSProperties}>For me, music is a way to express the ideas and emotions that are often locked inside. Growing up, I found solace in rhythm and poetry, using them to navigate the highs and lows of life. This journey led me to the world of rap, where I blend melodic, psychedelic, trap, and rage elements to craft a sound that's uniquely mine. <br /><br />
 
-                        My music is an exploration of my mind and a way to connect with others on a deeper level. Whether it&apos;s the hypnotic beats of a psychedelic track or the raw energy of a trap anthem, every song is a piece of me. I'm here to take you on a journey through my experiences, thoughts, and dreams. So, buckle up and get ready to vibe with Folliblanc</p>
+                        My music is an exploration of my mind and a way to connect with others on a deeper level. Whether it&apos;s the hypnotic beats of a psychedelic track or the raw energy of a trap anthem, every song is a piece of me. I&apos;m here to take you on a journey through my experiences, thoughts, and dreams. So, buckle up and get ready to vibe with Folliblanc</p>
                 </div>
             </section>
 
@@ -122,8 +119,6 @@ export default function Page() {
 
                 <p style={{ fontSize: "var(--mediumFontSize)", maxWidth: "750px", backgroundColor: "var(--color1)", color: "var(--gray1)", lineHeight: "45px" }}>Get updates, drops, advance ticket infomation and more direct to your inbox. No spam!</p>
             </section>
-
-            <Footer />
-        </div>
+        </main>
     )
 }

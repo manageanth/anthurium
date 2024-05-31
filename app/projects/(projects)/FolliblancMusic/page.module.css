@@ -1,4 +1,4 @@
-.main {
+.mainLayout {
     --extraLargeFontSize: calc(15vw + 1px);
     --largeFontSize: clamp(40px, 7vw + 1px, 178px);
     --mediumFontSize: 40px;
@@ -17,19 +17,22 @@
 
     font-family: var(--lato);
     font-size: var(--regularFontSize);
-    display: grid;
-    align-content: flex-start;
     background-color: var(--backgroundColor);
     color: var(--gray1);
+}
+
+.main {
+    display: grid;
+    align-content: flex-start;
     overflow-x: clip;
 }
 
-.main h1 {
+.mainLayout h1 {
     font-family: var(--albertExtraBold);
 }
 
 
-.main section {
+.mainLayout section {
     padding: 4rem 1rem;
 }
 
