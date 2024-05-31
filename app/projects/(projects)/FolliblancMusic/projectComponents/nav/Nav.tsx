@@ -143,7 +143,7 @@ function Socials() {
 }
 
 function JamButton() {
-    const [isJamMode, isJamModeSet] = useAtom(jamMode)
+    const [, isJamModeSet] = useAtom(jamMode)
 
 
     return (
