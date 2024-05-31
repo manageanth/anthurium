@@ -13,62 +13,56 @@ type history = {
 
 const historyArr: history[] = [
     {
-        img: defaultImageSrc,
-        intro: "2012",
-        heading: "Song cover for the beatles",
-        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro ad nam, quo quod repudiandae distinctio maxime dolorem tempora incidunt magnam. Iste praesentium assumenda voluptatum veritatis doloribus consequatur, maxime asperiores vitae."
-    },
-    {
-        img: defaultImageSrc2,
-        intro: "2013",
-        heading: "Song cover for the beatles",
-        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro ad nam, quo quod repudiandae distinctio maxime dolorem tempora incidunt magnam. Iste praesentium assumenda voluptatum veritatis doloribus consequatur, maxime asperiores vitae."
-    },
-    {
-        img: defaultImageSrc,
-        intro: "2014",
-        heading: "Song cover for the beatles",
-        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro ad nam, quo quod repudiandae distinctio maxime dolorem tempora incidunt magnam. Iste praesentium assumenda voluptatum veritatis doloribus consequatur, maxime asperiores vitae."
-    },
-    {
-        img: defaultImageSrc2,
-        intro: "2015",
-        heading: "Song cover for the beatles",
-        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro ad nam, quo quod repudiandae distinctio maxime dolorem tempora incidunt magnam. Iste praesentium assumenda voluptatum veritatis doloribus consequatur, maxime asperiores vitae."
-    },
-    {
-        img: defaultImageSrc,
-        intro: "2016",
-        heading: "Song cover for the beatles",
-        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro ad nam, quo quod repudiandae distinctio maxime dolorem tempora incidunt magnam. Iste praesentium assumenda voluptatum veritatis doloribus consequatur, maxime asperiores vitae."
-    },
-    {
-        img: defaultImageSrc2,
-        intro: "2017",
-        heading: "Song cover for the beatles",
-        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro ad nam, quo quod repudiandae distinctio maxime dolorem tempora incidunt magnam. Iste praesentium assumenda voluptatum veritatis doloribus consequatur, maxime asperiores vitae."
-    },
-    {
-        img: defaultImageSrc,
-        intro: "2018",
-        heading: "Song cover for the beatles",
-        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro ad nam, quo quod repudiandae distinctio maxime dolorem tempora incidunt magnam. Iste praesentium assumenda voluptatum veritatis doloribus consequatur, maxime asperiores vitae."
-    },
-    {
-        img: defaultImageSrc2,
+        img: require(`@/public/projects/folliblancMusic/history1.jpg`).default.src,
         intro: "2019",
-        heading: "Song cover for the beatles",
+        heading: "In It - Windterworld",
         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro ad nam, quo quod repudiandae distinctio maxime dolorem tempora incidunt magnam. Iste praesentium assumenda voluptatum veritatis doloribus consequatur, maxime asperiores vitae."
-    }
+    },
+    {
+        img: require(`@/public/projects/folliblancMusic/history2.jpg`).default.src,
+        intro: "2020",
+        heading: "Wishes",
+        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro ad nam, quo quod repudiandae distinctio maxime dolorem tempora incidunt magnam. Iste praesentium assumenda voluptatum veritatis doloribus consequatur, maxime asperiores vitae."
+    },
+    {
+        img: require(`@/public/projects/folliblancMusic/history3.jpg`).default.src,
+        intro: "2021",
+        heading: "STAR LIFTING Lyric Video (Feat SPACEBAR) [AMV]",
+        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro ad nam, quo quod repudiandae distinctio maxime dolorem tempora incidunt magnam. Iste praesentium assumenda voluptatum veritatis doloribus consequatur, maxime asperiores vitae."
+    },
+    {
+        img: require(`@/public/projects/folliblancMusic/history4.jpg`).default.src,
+        intro: "2022",
+        heading: "No Worries",
+        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro ad nam, quo quod repudiandae distinctio maxime dolorem tempora incidunt magnam. Iste praesentium assumenda voluptatum veritatis doloribus consequatur, maxime asperiores vitae."
+    },
+    {
+        img: require(`@/public/projects/folliblancMusic/history5.jpg`).default.src,
+        intro: "2023",
+        heading: "Zoolander 23",
+        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro ad nam, quo quod repudiandae distinctio maxime dolorem tempora incidunt magnam. Iste praesentium assumenda voluptatum veritatis doloribus consequatur, maxime asperiores vitae."
+    },
+    {
+        img: require(`@/public/projects/folliblancMusic/history6.jpg`).default.src,
+        intro: "2023",
+        heading: "New Heights",
+        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro ad nam, quo quod repudiandae distinctio maxime dolorem tempora incidunt magnam. Iste praesentium assumenda voluptatum veritatis doloribus consequatur, maxime asperiores vitae."
+    },
+    // {
+    //     img: defaultImageSrc,
+    //     intro: "2018",
+    //     heading: "Song cover for the beatles",
+    //     text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro ad nam, quo quod repudiandae distinctio maxime dolorem tempora incidunt magnam. Iste praesentium assumenda voluptatum veritatis doloribus consequatur, maxime asperiores vitae."
+    // },
+    // {
+    //     img: defaultImageSrc2,
+    //     intro: "2019",
+    //     heading: "Song cover for the beatles",
+    //     text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro ad nam, quo quod repudiandae distinctio maxime dolorem tempora incidunt magnam. Iste praesentium assumenda voluptatum veritatis doloribus consequatur, maxime asperiores vitae."
+    // }
 ]
 
 export default function History() {
-    //absolutely position elements
-    //3 elements
-    //one left - one right, one middle
-    //can change elements
-    //can get left and get right element
-
     const [currentIndex, currentIndexSet] = useState(0)
     const historyContRef = useRef<HTMLDivElement | null>(null)
     const historyChildrenRefs = useRef<(HTMLDivElement | null)[]>([])
@@ -156,7 +150,7 @@ export default function History() {
 
                         <h2>{eachHistory.heading}</h2>
 
-                        <p>{eachHistory.text}</p>
+                        {/* <p>{eachHistory.text}</p> */}
                     </div>
                 )
             })}

@@ -51,6 +51,7 @@
 
 .headingCont>img {
     --translateFrom: 0 20%;
+    --translateTo: 0 -20%;
     position: absolute;
     top: 50%;
     left: 50%;

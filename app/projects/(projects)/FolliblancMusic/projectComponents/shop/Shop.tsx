@@ -13,43 +13,42 @@ type item = {
 
 const items: item[] = [
     {
-        img: "https://images.pexels.com/photos/3533228/pexels-photo-3533228.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        name: "item 1",
+        img: require(`@/public/projects/folliblancMusic/shirt1.png`).default.src,
+        name: "Midnight Vibes Tee",
         price: 40,
         link: ""
     },
     {
-        img: "https://images.pexels.com/photos/462162/pexels-photo-462162.jpeg?auto=compress&cs=tinysrgb&w=600",
-        name: "item 2",
+        img: require(`@/public/projects/folliblancMusic/shirt2.png`).default.src,
+        name: "Lunar Echo Tee",
         price: 70,
         link: ""
     },
     {
-        img: defaultImageSrc,
-        name: "item 3",
+        img: require(`@/public/projects/folliblancMusic/shirt3.png`).default.src,
+        name: "Rose Harmony Tee",
         price: 90,
         link: ""
     },
     {
-        img: defaultImageSrc2,
-        name: "item 4",
+        img: require(`@/public/projects/folliblancMusic/shirt4.png`).default.src,
+        name: "Storm Groove Tee",
         price: 50,
         link: ""
     },
     {
-        img: defaultImageSrc,
-        name: "item 5",
+        img: require(`@/public/projects/folliblancMusic/shirt5.png`).default.src,
+        name: "Crimson Beat Tee",
         price: 30,
         link: ""
     },
     {
-        img: defaultImageSrc2,
-        name: "item 6",
+        img: require(`@/public/projects/folliblancMusic/shirt6.png`).default.src,
+        name: "Aqua Melody Tee",
         price: 60,
         link: ""
-    },
+    }
 ]
-
 export default function Shop() {
     return (
         <div className={styles.cont} style={{}}>

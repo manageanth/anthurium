@@ -52,7 +52,7 @@ export default function Page() {
 
 
                 <Parallax style={{ width: "min(700px, 100%)", padding: "1rem", justifySelf: "center", fontSize: "var(--mediumFontSize)" }} speed={-.1}>
-                    <p>Yo! I&apos;m Rex. I&apos;m a Barbadian artist, songwriter / producer, and multi-instrumentalist. I&apos;m also one half of the production duo DreadHawk Productions with my former Cover Drive bandmate, Barry &quot;Barman&quot; Hill. Welcome to my official site! Browse, get to know me, snag some merch, and be sure to try out Jam mode!</p>
+                    <p>Welcome to my world. I&apos;m Folliblanc, a rapper and songwriter dedicated to transforming my thoughts and emotions into music. My journey is fueled by the desire to release and express the ideas and feelings I hold within myself. Each track I create is a reflection of my soul, a piece of my story that I share with you.</p>
                 </Parallax>
             </>
 
@@ -75,10 +75,12 @@ export default function Page() {
             </Link>
 
             <section>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem", alignItems: "flex-start", justifyContent: "center", margin: "0 auto", maxWidth: "1000px" }}>
-                    <Image alt="profile" width={1000} height={1000} src={"https://www.imreallyatrex.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Ftd2emhjj%2Fproduction%2Ff4e74acb616c77a9b7e3fd6fa42abb07818e85a5-1333x2000.jpg%3Frect%3D0%2C148%2C1333%2C1703%26w%3D900%26h%3D1150%26q%3D100%26fit%3Dclip%26auto%3Dformat&w=1920&q=75"} style={{ flex: "1 1 300px", width: "min(400px, 100%)", }} />
+                <div style={{ display: "flex", flexWrap: "wrap", columnGap: "4rem", rowGap: "1rem", alignItems: "flex-start", justifyContent: "center", margin: "0 auto", maxWidth: "1000px" }}>
+                    <Image alt="profile" width={1000} height={1000} src={require(`@/public/projects/folliblancMusic/about.jpg`).default.src} style={{ flex: "0 1 500px", width: "min(400px, 100%)", }} />
 
-                    <p style={{ flex: "1 1 300px", fontSize: "var(--smallFontSize)" }}>At 16, I left school in Barbados to become a professional musician. With three of my friends, we formed the band Cover Drive, and started our musical journey. From 2010-2018, we worked with top producers, scored three top tens on the UK official chart — including our #1 hit record, &quot;Twilight.&quot; We earned platinum records, opened for Rihanna and Kelly Clarkson, toured the US college circuit (210 shows)</p>
+                    <p style={{ flex: "0 1 350px", fontSize: "var(--smallFontSize)", fontWeight: "bold", animation: "translate both linear", animationTimeline: "view()", "--translateFrom": "0 20%" } as React.CSSProperties}>For me, music is a way to express the ideas and emotions that are often locked inside. Growing up, I found solace in rhythm and poetry, using them to navigate the highs and lows of life. This journey led me to the world of rap, where I blend melodic, psychedelic, trap, and rage elements to craft a sound that's uniquely mine. <br /><br />
+
+                        My music is an exploration of my mind and a way to connect with others on a deeper level. Whether it&apos;s the hypnotic beats of a psychedelic track or the raw energy of a trap anthem, every song is a piece of me. I'm here to take you on a journey through my experiences, thoughts, and dreams. So, buckle up and get ready to vibe with Folliblanc</p>
                 </div>
             </section>
 
@@ -88,7 +90,7 @@ export default function Page() {
 
                     <p>A look back in time</p>
 
-                    <Image alt="headerBackgroundImage" width={100} height={100} src={require(`@/public/projects/folliblancMusic/lamp.png`).default.src} style={{ animation: "translate both linear", animationTimeline: "view()" }} />
+                    <Image alt="headerBackgroundImage" width={200} height={200} src={require(`@/public/projects/folliblancMusic/mic.png`).default.src} style={{ animation: "translate both linear", animationTimeline: "view()" }} />
                 </div>
 
                 <History />
@@ -101,7 +103,7 @@ export default function Page() {
 
                     <p>All in the store</p>
 
-                    <Image alt="headerBackgroundImage" width={100} height={100} src={require(`@/public/projects/folliblancMusic/lamp.png`).default.src} style={{ animation: "translate both linear", animationTimeline: "view()" }} />
+                    <Image alt="headerBackgroundImage" width={200} height={200} src={require(`@/public/projects/folliblancMusic/mic.png`).default.src} style={{ animation: "translate both linear", animationTimeline: "view()" }} />
                 </div>
 
                 <Shop />

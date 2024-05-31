@@ -23,55 +23,55 @@
         animation: scale both linear;
         animation-timeline: view(70vh 10vh);
     }
-}
 
-@keyframes opacity {
-    from {
-        opacity: var(--opacityFrom, 0);
+    @keyframes opacity {
+        from {
+            opacity: var(--opacityFrom, 0);
+        }
+
+        to {
+            opacity: var(--opacityTo, 1);
+        }
     }
 
-    to {
-        opacity: var(--opacityTo, 1);
-    }
-}
+    @keyframes translate {
+        from {
+            translate: var(--translateFrom, 0 100%);
+        }
 
-@keyframes translate {
-    from {
-        translate: var(--translateFrom, 0 100%);
-    }
-
-    to {
-        translate: var(--translateTo, 0 0);
-    }
-}
-
-@keyframes scale {
-    from {
-        scale: var(--scaleFrom, 0);
+        to {
+            translate: var(--translateTo, 0 0);
+        }
     }
 
-    to {
-        scale: var(--scaleTo, 1);
-    }
-}
+    @keyframes scale {
+        from {
+            scale: var(--scaleFrom, 0);
+        }
 
-@keyframes transformRotateY {
-    from {
-        transform: rotateY(var(--transformRotateYFrom, 90deg));
-    }
-
-    to {
-        transform: rotateY(var(--transformRotateYTo, 0deg));
-    }
-}
-
-
-@keyframes rotate {
-    from {
-        rotate: var(--rotateFrom, 90deg);
+        to {
+            scale: var(--scaleTo, 1);
+        }
     }
 
-    to {
-        rotate: var(--rotateTo, 0deg);
+    @keyframes transformRotateY {
+        from {
+            transform: rotateY(var(--transformRotateYFrom, 90deg));
+        }
+
+        to {
+            transform: rotateY(var(--transformRotateYTo, 0deg));
+        }
+    }
+
+
+    @keyframes rotate {
+        from {
+            rotate: var(--rotateFrom, 90deg);
+        }
+
+        to {
+            rotate: var(--rotateTo, 0deg);
+        }
     }
 }
