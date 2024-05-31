@@ -10,12 +10,15 @@ import React from "react"
 import Logo from "./projectComponents/logo/Logo"
 import History from "./projectComponents/history/History"
 import Shop from "./projectComponents/shop/Shop"
+import { useAtom } from "jotai"
+import { jamMode } from "./lib/atomState"
 
 export default function Page() {
+    const [isJamMode, isJamModeSet] = useAtom(jamMode)
 
     return (
         <main className={styles.main}>
-
+            {isJamMode && <p>sup</p>}
             <>
                 {/* distortion effect */}
                 <svg style={{ display: "none" }}>
@@ -75,7 +78,7 @@ export default function Page() {
                 <div style={{ display: "flex", flexWrap: "wrap", columnGap: "4rem", rowGap: "1rem", alignItems: "flex-start", justifyContent: "center", margin: "0 auto", maxWidth: "1000px" }}>
                     <Image alt="profile" width={1000} height={1000} src={require(`@/public/projects/folliblancMusic/about.jpg`).default.src} style={{ flex: "0 1 500px", width: "min(400px, 100%)", }} />
 
-                    <p style={{ flex: "0 1 350px", fontSize: "var(--smallFontSize)", fontWeight: "bold", animation: "translate both linear", animationTimeline: "view()", "--translateFrom": "0 20%" } as React.CSSProperties}>For me, music is a way to express the ideas and emotions that are often locked inside. Growing up, I found solace in rhythm and poetry, using them to navigate the highs and lows of life. This journey led me to the world of rap, where I blend melodic, psychedelic, trap, and rage elements to craft a sound that's uniquely mine. <br /><br />
+                    <p style={{ flex: "0 1 350px", fontSize: "var(--smallFontSize)", fontWeight: "bold", animation: "translate both linear", animationTimeline: "view()", "--translateFrom": "0 20%" } as React.CSSProperties}>For me, music is a way to express the ideas and emotions that are often locked inside. Growing up, I found solace in rhythm and poetry, using them to navigate the highs and lows of life. This journey led me to the world of rap, where I blend melodic, psychedelic, trap, and rage elements to craft a sound that&apos;s uniquely mine. <br /><br />
 
                         My music is an exploration of my mind and a way to connect with others on a deeper level. Whether it&apos;s the hypnotic beats of a psychedelic track or the raw energy of a trap anthem, every song is a piece of me. I&apos;m here to take you on a journey through my experiences, thoughts, and dreams. So, buckle up and get ready to vibe with Folliblanc</p>
                 </div>

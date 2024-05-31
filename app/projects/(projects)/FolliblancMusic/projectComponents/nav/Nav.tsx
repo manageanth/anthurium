@@ -4,6 +4,8 @@ import styles from "./nav.module.css"
 // import "../../page.css"
 import Link from 'next/link';
 import Logo from '../logo/Logo';
+import { useAtom } from 'jotai';
+import { jamMode } from '../../lib/atomState';
 
 export type menuItem = {
     title: string;
@@ -141,10 +143,14 @@ function Socials() {
 }
 
 function JamButton() {
+    const [isJamMode, isJamModeSet] = useAtom(jamMode)
+
 
     return (
         <li style={{ display: "grid" }}>
-            <div style={{ display: "flex", alignItems: "center" }}>
+            <div style={{ display: "flex", alignItems: "center" }} onClick={() => {
+                isJamModeSet(prev => !prev)
+            }}>
                 <span className="material-symbols-outlined">
                     music_note
                 </span>
