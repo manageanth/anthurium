@@ -10,11 +10,11 @@ const rubik = Rubik({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://anthsolutions.com'),
-  title: "Anth-Solutions - Expert Web Development & Mobile App Solutions | Next.js & React Native Specialists",
-  description: "Anth-Solutions is a leading web development agency specializing in high-performance Next.js websites and seamless React Native mobile app solutions. Our expert team delivers tailored digital experiences, from custom e-commerce platforms to robust software solutions. Contact us to elevate your online presence",
+  title: "Anth-Solutions - Expert Web Development & Mobile App Solutions | Next JS & React Native Specialists",
+  description: "Anth-Solutions is a leading web development agency specializing in high-performance Next JS websites and seamless React Native mobile app solutions. Our expert team delivers tailored digital experiences, from custom e-commerce platforms to robust software solutions. Contact us to elevate your online presence",
   openGraph: {
     title: "Anth-Solutions - Expert Web Development & Mobile App Solutions",
-    description: "Anth-Solutions is a leading web development agency specializing in high-performance Next.js websites and seamless React Native mobile app solutions."
+    description: "Anth-Solutions is a leading web development agency specializing in high-performance Next JS websites and seamless React Native mobile app solutions."
   }
 };
 
@@ -26,10 +26,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={rubik.className}>
-        {/* <Toaster
+        <Toaster
           position="top-center"
           reverseOrder={false}
-        /> */}
+        />
 
         <Nav menuInfoArr={[
           {
