@@ -5,7 +5,7 @@ import Nav from "@/components/nav/Nav";
 import { servicesData } from "@/lib/servicesData";
 import { Toaster } from "react-hot-toast";
 import Footer from "@/components/footer/Footer";
-import GoogleAnalaytics from "@bradgarropy/next-google-analytics"
+import Script from "next/script";
 
 const rubik = Rubik({ subsets: ["latin"] });
 
@@ -58,7 +58,17 @@ export default function RootLayout({
         ]}
         />
         {children}
-        <GoogleAnalaytics measurementId="G-8MZXW48V31" />
+
+        <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-8MZXW48V31" ></Script>
+        <Script id="google-analytics" strategy="afterInteractive" >
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-8MZXW48V31');
+         `}
+        </Script>
         <Footer />
       </body>
     </html>

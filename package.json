@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@bradgarropy/next-google-analytics": "^1.0.2",
     "jotai": "^2.8.2",
     "next": "14.1.0",
     "react": "^18",
