@@ -5,6 +5,7 @@ import Nav from "@/components/nav/Nav";
 import { servicesData } from "@/lib/servicesData";
 import { Toaster } from "react-hot-toast";
 import Footer from "@/components/footer/Footer";
+import GoogleAnalaytics from "@bradgarropy/next-google-analytics"
 
 const rubik = Rubik({ subsets: ["latin"] });
 
@@ -57,6 +58,7 @@ export default function RootLayout({
         ]}
         />
         {children}
+        <GoogleAnalaytics measurementId="G-8MZXW48V31" />
         <Footer />
       </body>
     </html>

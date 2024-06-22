@@ -13,7 +13,7 @@ export default function Page() {
             <Nav />
 
             <div className={styles.topCont}>
-                <Image alt="burger" src={require(`@/public/projects/grandBurger/burger.png`).default.src} fill={true} style={{ objectFit: "cover", }} sizes="100vw" />
+                <Image alt="burger" src={require(`@/public/projects/grandBurger/burger.png`).default.src} fill={true} style={{ objectFit: "cover", }} sizes="100vw" priority={true} />
 
                 <h1 style={{ position: "relative", fontSize: "var(--extraLargeFontSize)", maxWidth: "10ch", textAlign: "center", lineHeight: "1.5ch" }}>Taste the difference</h1>
             </div>
