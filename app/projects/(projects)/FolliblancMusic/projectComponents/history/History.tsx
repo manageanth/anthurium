@@ -102,7 +102,6 @@ export default function History() {
 
 
     function fitHeight() {
-        console.log(`$hit`);
         if (historyContRef.current === null) return
 
         let biggestHeight = 0
