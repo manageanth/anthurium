@@ -6,7 +6,8 @@ import { formatter } from '@/utility/globalState'
 import { useAtom } from 'jotai'
 import styles from "./styles.module.css"
 
-export default function ItemPicker({ items, imageContHeight = "65vh" }: { items: item[], imageContHeight?: string }) {
+export default function ItemPicker({ items, sizePre = 250, horizantal = false, seekNumber = 2 }: { items: item[], sizePre?: number, horizantal?: boolean, seekNumber?: number }) {
+    const size = `min(${sizePre}px, 100%)`
     const [cartItems, cartItemsSet] = useAtom(cartItemsGlobal)
 
     const [activeIndex, activeIndexSet] = useState(0)
@@ -59,8 +60,8 @@ export default function ItemPicker({ items, imageContHeight = "65vh" }: { items:
     }, [cartItems, activeIndex, items])
 
     return (
-        <div style={{ color: "#fff", textAlign: "center", display: "grid" }}>
-            <div style={{ display: "grid", justifyItems: "center" }}>
+        <div style={{ color: "#fff", textAlign: "center", display: "grid" }}> {/* container */}
+            <div style={{ display: "grid", gridTemplateRows: horizantal ? "" : "auto 1fr auto", gridTemplateColumns: horizantal ? "auto 1fr auto" : "", overflow: "clip" }}>
                 <button
                     onClick={() => {
                         detectFastClick()
@@ -68,17 +69,17 @@ export default function ItemPicker({ items, imageContHeight = "65vh" }: { items:
                             return getPrevInBounds(prev)
                         })
                     }}>
-                    <span style={{ fontSize: "var(--mediumIconSize)" }} className="material-symbols-outlined">
+                    <span style={{ fontSize: "var(--mediumIconSize)", rotate: horizantal ? "-90deg" : "" }} className="material-symbols-outlined">
                         keyboard_arrow_up
                     </span>
                 </button>
 
-                <div style={{ justifySelf: "stretch", position: 'relative', zIndex: 0, height: imageContHeight, overflow: "hidden" }}>
+                <div style={{ position: 'relative', zIndex: 0, overflow: "clip", width: horizantal ? "" : size, height: horizantal ? size : "", aspectRatio: horizantal ? "" : "1/1", minHeight: `${250}px`, margin: horizantal ? " " : "0 auto" }}>
                     {items.map((eachItem, eachItemIndex) => {
-                        const seekNumber = 2
                         let currentOffset = -1
                         let isPreviouseElement = false
                         let isNextElement = false
+
 
                         for (let index = 0; index < seekNumber; index++) {
                             if (eachItemIndex === getNextInBounds(activeIndex + index)) {
@@ -87,6 +88,7 @@ export default function ItemPicker({ items, imageContHeight = "65vh" }: { items:
                                 if (index === 0) {
                                     isNextElement = true
                                 }
+
                             }
 
                             if (eachItemIndex === getPrevInBounds(activeIndex - index)) {
@@ -95,20 +97,20 @@ export default function ItemPicker({ items, imageContHeight = "65vh" }: { items:
                                 if (index === 0) {
                                     isPreviouseElement = true
                                 }
+
                             }
 
                         }
 
                         if (eachItemIndex === activeIndex) {
                             currentOffset = 0
+
                         }
 
                         return (
-                            <div key={eachItemIndex} style={{ position: "absolute", top: "50%", left: 0, width: "100%", height: "70%", transform: `translate(0, ${currentOffset - 50}%)`, display: currentOffset === -1 ? "none" : "", zIndex: currentOffset === 0 ? 10 : isPreviouseElement ? 9 : "", opacity: currentOffset === 0 ? "" : .3, scale: currentOffset === 0 ? "" : .8, transition: `transform ${transitionTime}ms, opacity ${transitionTime}ms, scale ${transitionTime}ms`, transformOrigin: "center", cursor: isNextElement || isPreviouseElement ? "pointer" : "" }}
+                            <div key={eachItemIndex} style={{ position: "absolute", top: "50%", left: "50%", width: size, height: size, transform: horizantal ? `translate(${currentOffset - 50}%,-50%)` : `translate(-50%, ${currentOffset - 50}%)`, display: currentOffset === -1 ? "none" : "", zIndex: currentOffset === 0 ? 10 : isPreviouseElement ? 9 : "", opacity: currentOffset === 0 ? "" : .3, scale: currentOffset === 0 ? "" : .8, transition: `transform ${transitionTime}ms, opacity ${transitionTime}ms, scale ${transitionTime}ms`, transformOrigin: "left", cursor: currentOffset === 0 ? "" : "pointer", }}
                                 onClick={() => {
-                                    if (isNextElement || isPreviouseElement) {
-                                        activeIndexSet(eachItemIndex)
-                                    }
+                                    activeIndexSet(eachItemIndex)
                                 }}
                             >
                                 <Image alt={`${eachItem.title}`} src={eachItem.image} style={{ objectFit: "contain" }} fill={true} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
@@ -124,11 +126,37 @@ export default function ItemPicker({ items, imageContHeight = "65vh" }: { items:
                             return getNextInBounds(prev)
                         })
                     }}>
-                    <span style={{ rotate: "180deg", fontSize: "var(--mediumIconSize)" }} className="material-symbols-outlined">
+                    <span style={{ rotate: horizantal ? "90deg" : "180deg", fontSize: "var(--mediumIconSize)" }} className="material-symbols-outlined">
                         keyboard_arrow_up
                     </span>
                 </button>
             </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", justifyContent: "center" }}>
                 <p style={{ color: "var(--color2)", fontSize: "var(--mediumFontSize)" }}>{formatter.format(items[activeIndex]?.price)}</p>

@@ -76,9 +76,9 @@ function DesktopNav() {
 
             <Logo />
 
-            <Menu menuItems={menuItems.slice(3, 5)} />
-
             <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
+                <Menu menuItems={menuItems.slice(3, 5)} />
+
                 <Socials />
 
                 <Cart />

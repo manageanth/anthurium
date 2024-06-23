@@ -320,5 +320,14 @@ export const sides: item[] = [
         description: "Sweet and tangy mustard dip.",
         image: require(`@/public/projects/grandBurger/sides/10.png`).default.src
 
-    }
+    },
+    {
+        id: "desserts6",
+        title: "Buffalo wild wings",
+        price: 3.99,
+        description: "get your wings",
+        image: require(`@/public/projects/grandBurger/sides/11.png`).default.src
+
+    },
+
 ]

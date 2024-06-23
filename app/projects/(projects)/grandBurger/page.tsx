@@ -38,10 +38,10 @@ export default function Page() {
                         <ItemPicker items={desserts} />
                     </div>
 
-                    <div style={{ flex: "0 1 auto", width: "min(350px, 100%)" }}>
+                    <div style={{ flex: "1 1 auto", width: "min(350px, 100%)" }}>
                         <h1 style={{ borderBlock: "2px solid var(--color2)", padding: "1rem", textAlign: "center" }}>Sides</h1>
 
-                        <ItemPicker items={sides} />
+                        <ItemPicker items={sides} horizantal={true} seekNumber={4} sizePre={350} />
                     </div>
                 </div>
             </section>
