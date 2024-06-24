@@ -4,17 +4,17 @@ import Logo from '../logo/Logo'
 export default function Footer() {
     return (
         <footer style={{ padding: "4rem 2rem", display: "grid", gap: "2rem", backgroundColor: "#fff", justifyItems: "center" }}>
-            <Logo alternate={true} />
+            <Logo />
 
-            <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "1rem", maxWidth: "900px", margin: "0 auto" }}>
-                <div style={{ flex: "1 1 300px" }}>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem", }}>
+                <div style={{ flex: 1 }}>
                     <p>152 Burger Lane, Dream Food Capital - Florida</p>
 
                     <p style={{ marginTop: "1rem", fontWeight: "500" }}>T: +888 123-2134</p>
                     <p style={{ fontWeight: "500" }}>E: bookings@burgerbliss.com</p>
                 </div>
 
-                <div style={{ flex: "1 1 300px" }}>
+                <div style={{ flex: 1, }}>
                     <ul style={{ display: "grid", gap: ".4rem" }}>
                         {[
                             "twitter",
@@ -28,6 +28,7 @@ export default function Footer() {
                         })}
                     </ul>
                 </div>
+
             </div>
 
             <div style={{ display: "flex", justifySelf: "stretch", alignItems: "center", justifyContent: "space-between" }}>

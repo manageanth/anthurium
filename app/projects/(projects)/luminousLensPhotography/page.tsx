@@ -56,9 +56,7 @@ export default function Page() {
                     <div style={{ display: "flex", flexDirection: "row-reverse", justifyContent: "center", flexWrap: "wrap", columnGap: "1rem", rowGap: "3rem", maxWidth: "800px", margin: "2rem auto 0rem auto" }}>
                         <div style={{ flex: '0 1 300px', display: "grid", justifyItems: "center" }}>
                             <div className={styles.backdrop} style={{ width: "fit-content", height: "fit-content" }}>
-                                <Image alt="about us image"
-                                    src={require(`@/public/projects/luminousLens/about.jpg`).default.src}
-                                    width={500} height={500} style={{ objectFit: "contain", width: "100%", height: "350px" }} />
+                                <Image alt="about us image" src={require(`@/public/projects/luminousLens/about.jpg`).default.src} width={500} height={500} priority={true} style={{ objectFit: "contain", width: "100%", height: "350px" }} />
                             </div>
                         </div>
 
