@@ -114,7 +114,7 @@ export default function ViewProjects({ children, ...elProps }: { children: React
 
                             <p>{projectsData[currentIndex].type}</p>
 
-                            <h1 style={{ textAlign: "center" }}>{projectsData[currentIndex].name}</h1>
+                            <h1 style={{ textAlign: "center", fontSize: "2rem", fontWeight: "bold" }}>{projectsData[currentIndex].name}</h1>
 
                             {projectsData[currentIndex].inspiration && (
                                 <ShowMore label="Design Inspiration From" content={

@@ -38,14 +38,14 @@ export const projectsData: projectData[] = [
         inspiration: "https://www.imreallyatrex.com"
     },
     {
-        name: "Grand Burger",
-        slug: "grandBurger",
-        image: require(`@/public/projects/grandBurger/cover.jpg`).default.src,
+        name: "Burger Bliss",
+        slug: "burgerBliss",
+        image: require(`@/public/projects/projectThree/cover.jpg`).default.src,
         type: "landing page",
         forCategory: ["restaurants"],
         categoryStyles: ["modern"],
         representingService: ["Website Development"],
-        inspiration: "https://www.imreallyatrex.com"
+        inspiration: "https://themes.themegoods.com/grandrestaurantv6/demo9/"
     }
     // {
     //     name: "",

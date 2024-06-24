@@ -8,10 +8,10 @@ export default function Footer() {
 
             <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "1rem", maxWidth: "900px", margin: "0 auto" }}>
                 <div style={{ flex: "1 1 300px" }}>
-                    <p>732/21 Second Street, Manchester King Street, Kingston United Kingdom</p>
+                    <p>152 Burger Lane, Dream Food Capital - Florida</p>
 
-                    <p style={{ marginTop: "1rem", fontWeight: "500" }}>T: +65 (0) 76-890-214</p>
-                    <p style={{ fontWeight: "500" }}>E: bookings@grandburger.com</p>
+                    <p style={{ marginTop: "1rem", fontWeight: "500" }}>T: +888 123-2134</p>
+                    <p style={{ fontWeight: "500" }}>E: bookings@burgerbliss.com</p>
                 </div>
 
                 <div style={{ flex: "1 1 300px" }}>
@@ -31,9 +31,9 @@ export default function Footer() {
             </div>
 
             <div style={{ display: "flex", justifySelf: "stretch", alignItems: "center", justifyContent: "space-between" }}>
-                <p>© COPYRIGHT MAX ALL RIGHT RESERVED.</p>
+                <p>© COPYRIGHT ANTH ALL RIGHT RESERVED.</p>
 
-                <p>Original</p>
+                <p>The Best</p>
             </div>
         </footer>
     )
