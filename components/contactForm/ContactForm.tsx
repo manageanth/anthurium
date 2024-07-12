@@ -16,6 +16,11 @@ export default function ContactForm() {
         company: null,
         message: "",
 
+        websiteName: null,
+        websiteTagline: null,
+        siteContent: null,
+        socialMediaLinks: null,
+
         primaryPurpose: null,
         targetAudience: null,
         keyFeatures: null,
@@ -28,7 +33,7 @@ export default function ContactForm() {
         additionalComments: null,
     }
 
-    const [formObj, formObjSet] = useState({ ...initialForm })
+    const [formObj, formObjSet] = useState<userForm>({ ...initialForm })
     const [formErrors, formErrorsSet] = useState<{ [key: string]: string | null }>({})
 
     function checkIfValid<T>(seenFormObj: T, seenName: keyof T, schema: any) {
@@ -175,6 +180,44 @@ export default function ContactForm() {
                         />
 
                         <TextInput
+                            name={"websiteName"}
+                            value={formObj.websiteName ?? ""}
+                            label={"What is your website name?"}
+                            placeHolder={"Website Name"}
+                            onChange={e => {
+                                formObjSet(prevObj => {
+                                    // @ts-ignore
+                                    prevObj.websiteName = e.target.value
+                                    if (prevObj.websiteName === "") prevObj.websiteName = null
+
+                                    return { ...prevObj }
+                                })
+
+                            }}
+                            onBlur={() => { checkIfValid(formObj, "websiteName", userFormSchema) }}
+                            errors={formErrors["websiteName"] ?? undefined}
+                        />
+
+                        <TextInput
+                            name={"websiteTagline"}
+                            value={formObj.websiteTagline ?? ""}
+                            label={"What is your website tagline? (optional)"}
+                            placeHolder={"Website Tagline"}
+                            onChange={e => {
+                                formObjSet(prevObj => {
+                                    // @ts-ignore
+                                    prevObj.websiteTagline = e.target.value
+                                    if (prevObj.websiteTagline === "") prevObj.websiteTagline = null
+
+                                    return { ...prevObj }
+                                })
+
+                            }}
+                            onBlur={() => { checkIfValid(formObj, "websiteTagline", userFormSchema) }}
+                            errors={formErrors["websiteTagline"] ?? undefined}
+                        />
+
+                        <TextInput
                             name={"targetAudience"}
                             value={formObj.targetAudience ?? ""}
                             label={"Who is your target audience? (optional)"}
@@ -191,6 +234,44 @@ export default function ContactForm() {
                             }}
                             onBlur={() => { checkIfValid(formObj, "targetAudience", userFormSchema) }}
                             errors={formErrors["targetAudience"] ?? undefined}
+                        />
+
+                        <TextAreaInput
+                            name={"siteContent"}
+                            value={formObj.siteContent ?? ""}
+                            label={"Site Content? (optional)"}
+                            placeHolder={"Please list out the pages you would like: home, services, contact, etc...) and any specific copy for each page. If you aren't sure, no worries we can discuss further."}
+                            onInput={e => {
+                                formObjSet(prevObj => {
+                                    // @ts-ignore
+                                    prevObj.siteContent = e.target.value
+                                    if (prevObj.siteContent === "") prevObj.siteContent = null
+
+                                    return { ...prevObj }
+                                })
+
+                            }}
+                            onBlur={() => { checkIfValid(formObj, "siteContent", userFormSchema) }}
+                            errors={formErrors["siteContent"] ?? undefined}
+                        />
+
+                        <TextInput
+                            name={"socialMediaLinks"}
+                            value={formObj.socialMediaLinks ?? ""}
+                            label={"social Media Links (optional)"}
+                            placeHolder={"Any social media links"}
+                            onChange={e => {
+                                formObjSet(prevObj => {
+                                    // @ts-ignore
+                                    prevObj.socialMediaLinks = e.target.value
+                                    if (prevObj.socialMediaLinks === "") prevObj.socialMediaLinks = null
+
+                                    return { ...prevObj }
+                                })
+
+                            }}
+                            onBlur={() => { checkIfValid(formObj, "socialMediaLinks", userFormSchema) }}
+                            errors={formErrors["socialMediaLinks"] ?? undefined}
                         />
 
                         <TextAreaInput

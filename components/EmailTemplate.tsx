@@ -8,9 +8,15 @@ export const userFormSchema = Z.object({
     company: Z.string().min(1).nullable(),
 
     primaryPurpose: Z.string().min(1).nullable(),
+
+    websiteName: Z.string().min(1).nullable(),
+    websiteTagline: Z.string().min(1).nullable(),
+    siteContent: Z.string().min(1).nullable(),
+    socialMediaLinks: Z.string().min(1).nullable(),
+
     targetAudience: Z.string().min(1).nullable(),
     keyFeatures: Z.string().min(1).nullable(),
-    designPreference: Z.string().min(1).nullable(),
+    designPreference: Z.string().min(1).nullable(),//edit for fonts and colors
     contentIncluded: Z.string().min(1).nullable(),
     thirdPartyIntegrations: Z.string().min(1).nullable(),
     hostingPreferences: Z.string().min(1).nullable(),
@@ -29,7 +35,14 @@ export const EmailTemplate = ({ seenForm }: { seenForm: userForm }) => (
 
         <p>{seenForm.message}</p>
 
-        {seenForm.primaryPurpose && <p>:primaryPurpose: {seenForm.primaryPurpose}</p>}
+
+        {Object.entries(seenForm).map(([key, value]) => {
+            return (
+                <p key={key}>{key}: {value}</p>
+            )
+        })}
+
+        {/* {seenForm.primaryPurpose && <p>primaryPurpose: {seenForm.primaryPurpose}</p>}
         {seenForm.targetAudience && <p>targetAudience: {seenForm.targetAudience}</p>}
         {seenForm.keyFeatures && <p>keyFeatures: {seenForm.keyFeatures}</p>}
         {seenForm.designPreference && <p>designPreference: {seenForm.designPreference}</p>}
@@ -38,6 +51,6 @@ export const EmailTemplate = ({ seenForm }: { seenForm: userForm }) => (
         {seenForm.hostingPreferences && <p>hostingPreferences: {seenForm.hostingPreferences}</p>}
         {seenForm.desiredTimeline && <p>desiredTimeline: {seenForm.desiredTimeline}</p>}
         {seenForm.budget && <p>budget: {seenForm.budget}</p>}
-        {seenForm.additionalComments && <p>additionalComments: {seenForm.additionalComments}</p>}
+        {seenForm.additionalComments && <p>additionalComments: {seenForm.additionalComments}</p>} */}
     </div>
 );
