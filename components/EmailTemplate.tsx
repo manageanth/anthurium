@@ -17,7 +17,6 @@ export const userFormSchema = Z.object({
     targetAudience: Z.string().min(1).nullable(),
     keyFeatures: Z.string().min(1).nullable(),
     designPreference: Z.string().min(1).nullable(),//edit for fonts and colors
-    contentIncluded: Z.string().min(1).nullable(),
     thirdPartyIntegrations: Z.string().min(1).nullable(),
     hostingPreferences: Z.string().min(1).nullable(),
     desiredTimeline: Z.string().min(1).nullable(),
@@ -33,7 +32,7 @@ export const EmailTemplate = ({ seenForm }: { seenForm: userForm }) => (
 
         {seenForm.company && <h2>Company: {seenForm.company}</h2>}
 
-        <p>{seenForm.message}</p>
+        <p>Message: {seenForm.message}</p>
 
 
         {Object.entries(seenForm).map(([key, value]) => {
@@ -41,16 +40,5 @@ export const EmailTemplate = ({ seenForm }: { seenForm: userForm }) => (
                 <p key={key}>{key}: {value}</p>
             )
         })}
-
-        {/* {seenForm.primaryPurpose && <p>primaryPurpose: {seenForm.primaryPurpose}</p>}
-        {seenForm.targetAudience && <p>targetAudience: {seenForm.targetAudience}</p>}
-        {seenForm.keyFeatures && <p>keyFeatures: {seenForm.keyFeatures}</p>}
-        {seenForm.designPreference && <p>designPreference: {seenForm.designPreference}</p>}
-        {seenForm.contentIncluded && <p>contentIncluded: {seenForm.contentIncluded}</p>}
-        {seenForm.thirdPartyIntegrations && <p>thirdPartyIntegrations: {seenForm.thirdPartyIntegrations}</p>}
-        {seenForm.hostingPreferences && <p>hostingPreferences: {seenForm.hostingPreferences}</p>}
-        {seenForm.desiredTimeline && <p>desiredTimeline: {seenForm.desiredTimeline}</p>}
-        {seenForm.budget && <p>budget: {seenForm.budget}</p>}
-        {seenForm.additionalComments && <p>additionalComments: {seenForm.additionalComments}</p>} */}
     </div>
 );

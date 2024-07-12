@@ -25,7 +25,6 @@ export default function ContactForm() {
         targetAudience: null,
         keyFeatures: null,
         designPreference: null,
-        contentIncluded: null,
         thirdPartyIntegrations: null,
         hostingPreferences: null,
         desiredTimeline: null,
@@ -296,7 +295,7 @@ export default function ContactForm() {
                         <TextAreaInput
                             name={"designPreference"}
                             value={formObj.designPreference ?? ""}
-                            label={"Do you have any specific design preferences or branding guidelines? (optional)"}
+                            label={"Do you have any specific design preferences or branding guidelines? (Fonts/Colors) (optional)"}
                             placeHolder={"Design Preference"}
                             onInput={e => {
                                 formObjSet(prevObj => {
@@ -310,25 +309,6 @@ export default function ContactForm() {
                             }}
                             onBlur={() => { checkIfValid(formObj, "designPreference", userFormSchema) }}
                             errors={formErrors["designPreference"] ?? undefined}
-                        />
-
-                        <TextAreaInput
-                            name={"contentIncluded"}
-                            value={formObj.contentIncluded ?? ""}
-                            label={"What content will be included on the website? (optional)"}
-                            placeHolder={"Content Included"}
-                            onInput={e => {
-                                formObjSet(prevObj => {
-                                    // @ts-ignore
-                                    prevObj.contentIncluded = e.target.value
-                                    if (prevObj.contentIncluded === "") prevObj.contentIncluded = null
-
-                                    return { ...prevObj }
-                                })
-
-                            }}
-                            onBlur={() => { checkIfValid(formObj, "contentIncluded", userFormSchema) }}
-                            errors={formErrors["contentIncluded"] ?? undefined}
                         />
 
                         <TextInput
