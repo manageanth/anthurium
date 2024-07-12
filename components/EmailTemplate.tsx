@@ -3,25 +3,24 @@ import Z from "zod"
 
 export const userFormSchema = Z.object({
     name: Z.string().min(1),
-    email: Z.string().min(1),
+    email: Z.string().email(),
     message: Z.string().min(1),
-    company: Z.string().min(1).nullable(),
+    company: Z.string(),
 
-    primaryPurpose: Z.string().min(1).nullable(),
+    primaryPurpose: Z.string(),
+    websiteName: Z.string(),
+    websiteTagline: Z.string(),
+    siteContent: Z.string(),
+    socialMediaLinks: Z.string(),
 
-    websiteName: Z.string().min(1).nullable(),
-    websiteTagline: Z.string().min(1).nullable(),
-    siteContent: Z.string().min(1).nullable(),
-    socialMediaLinks: Z.string().min(1).nullable(),
-
-    targetAudience: Z.string().min(1).nullable(),
-    keyFeatures: Z.string().min(1).nullable(),
-    designPreference: Z.string().min(1).nullable(),//edit for fonts and colors
-    thirdPartyIntegrations: Z.string().min(1).nullable(),
-    hostingPreferences: Z.string().min(1).nullable(),
-    desiredTimeline: Z.string().min(1).nullable(),
-    budget: Z.string().min(1).nullable(),
-    additionalComments: Z.string().min(1).nullable(),
+    targetAudience: Z.string(),
+    keyFeatures: Z.string(),
+    designPreference: Z.string(),//edit for fonts and colors
+    thirdPartyIntegrations: Z.string(),
+    hostingPreferences: Z.string(),
+    desiredTimeline: Z.string(),
+    budget: Z.string(),
+    additionalComments: Z.string(),
 })
 
 export type userForm = Z.infer<typeof userFormSchema>

@@ -13,37 +13,91 @@ export default function ContactForm() {
     const initialForm: userForm = {
         name: "",
         email: "",
-        company: null,
+        company: "",
         message: "",
 
-        websiteName: null,
-        websiteTagline: null,
-        siteContent: null,
-        socialMediaLinks: null,
+        websiteName: "",
+        websiteTagline: "",
+        siteContent: "",
+        socialMediaLinks: "",
 
-        primaryPurpose: null,
-        targetAudience: null,
-        keyFeatures: null,
-        designPreference: null,
-        thirdPartyIntegrations: null,
-        hostingPreferences: null,
-        desiredTimeline: null,
-        budget: null,
-        additionalComments: null,
+        primaryPurpose: "",
+        targetAudience: "",
+        keyFeatures: "",
+        designPreference: "",
+        thirdPartyIntegrations: "",
+        hostingPreferences: "",
+        desiredTimeline: "",
+        budget: "",
+        additionalComments: "",
     }
-
     const [formObj, formObjSet] = useState<userForm>({ ...initialForm })
-    const [formErrors, formErrorsSet] = useState<{ [key: string]: string | null }>({})
 
-    function checkIfValid<T>(seenFormObj: T, seenName: keyof T, schema: any) {
-        //@ts-ignore
+    type userFormKey = keyof userForm
+
+    type moreFormInfo = Partial<{
+        [key in userFormKey]: {
+            label?: string,
+            placeHolder?: string,
+            type?: "input" | "textArea",
+            required?: boolean
+        }
+    }>
+
+    const [moreFormInfoObj,] = useState<moreFormInfo>({
+        websiteName: {
+            label: "What is your website name?"
+        },
+        websiteTagline: {
+            label: "What is your website tagline?"
+        },
+        siteContent: {
+            type: "textArea",
+            placeHolder: "Please list out the pages you would like (home, services, contact, etc...) and any specific copy for each page. If you aren't sure, no worries we can discuss further."
+        },
+        primaryPurpose: {
+            label: "What is the primary purpose of your website?"
+        },
+        targetAudience: {
+            label: "Who is your target audience?"
+        },
+        keyFeatures: {
+            label: "What key features would you like for your website?",
+            type: "textArea"
+        },
+        designPreference: {
+            label: "Do you have any specific design preferences or branding guidelines? (Fonts/Colors)",
+            type: "textArea"
+        },
+        thirdPartyIntegrations: {
+            label: "Are there any third-party integrations needed (e.g., CRM systems, payment gateways)?"
+        },
+        hostingPreferences: {
+            label: "Do you have any specific requirements for hosting?"
+        },
+        desiredTimeline: {
+            label: "What is your desired timeline for the project?"
+        },
+        budget: {
+            label: "What is your budget for the website project?"
+        },
+        additionalComments: {
+            label: "Do you have any additional comments or specific requirements for the website?",
+            type: "textArea"
+        },
+    })
+
+    const [formErrors, formErrorsSet] = useState<Partial<{
+        [key in userFormKey]: string
+    }>>({})
+
+    function checkIfValid(seenFormObj: userForm, seenName: keyof userForm, schema: any) {
         const testSchema = schema.pick({ [seenName]: true }).safeParse(seenFormObj);
 
         if (testSchema.success) {//worked
             formErrorsSet(prevObj => {
                 const newObj = { ...prevObj }
-                //@ts-ignore
-                newObj[seenName] = null
+                delete newObj[seenName]
 
                 return newObj
             })
@@ -55,10 +109,9 @@ export default function ContactForm() {
                 let errorMessage = ""
 
                 JSON.parse(testSchema.error.message).forEach((eachErrorObj: any) => {
-                    errorMessage += eachErrorObj.message
+                    errorMessage += ` ${eachErrorObj.message}`
                 })
 
-                //@ts-ignore
                 newObj[seenName] = errorMessage
 
                 return newObj
@@ -103,7 +156,7 @@ export default function ContactForm() {
                     onBlur={() => {
                         checkIfValid(formObj, "name", userFormSchema)
                     }}
-                    errors={formErrors["name"] ?? undefined}
+                    errors={formErrors["name"]}
                 />
 
                 <TextInput
@@ -121,7 +174,7 @@ export default function ContactForm() {
                     onBlur={() => {
                         checkIfValid(formObj, "email", userFormSchema)
                     }}
-                    errors={formErrors["email"] ?? undefined}
+                    errors={formErrors["email"]}
                 />
 
                 <TextInput
@@ -132,13 +185,12 @@ export default function ContactForm() {
                         formObjSet(prevObj => {
                             // @ts-ignore
                             prevObj.company = e.target.value
-                            if (prevObj.company === "") prevObj.company = null
 
                             return { ...prevObj }
                         })
                     }}
                     onBlur={() => { checkIfValid(formObj, "company", userFormSchema) }}
-                    errors={formErrors["company"] ?? undefined}
+                    errors={formErrors["company"]}
                 />
 
                 <TextAreaInput
@@ -154,258 +206,337 @@ export default function ContactForm() {
                         })
                     }}
                     onBlur={() => { checkIfValid(formObj, "message", userFormSchema) }}
-                    errors={formErrors["message"] ?? undefined}
+                    errors={formErrors["message"]}
                 />
 
                 <ShowMore label='Website Details' content={
                     <>
-                        <TextInput
-                            name={"primaryPurpose"}
-                            value={formObj.primaryPurpose ?? ""}
-                            label={"What is the primary purpose of your website? (optional)"}
-                            placeHolder={"Primary Purpose"}
-                            onChange={e => {
-                                formObjSet(prevObj => {
-                                    // @ts-ignore
-                                    prevObj.primaryPurpose = e.target.value
-                                    if (prevObj.primaryPurpose === "") prevObj.primaryPurpose = null
+                        {Object.entries(formObj).map(eachEntry => {
+                            const eachKey = eachEntry[0] as userFormKey
 
-                                    return { ...prevObj }
-                                })
+                            if (eachKey === "name" || eachKey === "email" || eachKey === "company" || eachKey === "message") {
+                                return null
+                            }
 
-                            }}
-                            onBlur={() => { checkIfValid(formObj, "primaryPurpose", userFormSchema) }}
-                            errors={formErrors["primaryPurpose"] ?? undefined}
-                        />
+                            let label: string = `${eachKey.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/\b\w/g, char => char.toUpperCase())}`; //name or intro
+                            let placeHolder = `Please Enter ${eachKey.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/\b\w/g, char => char.toUpperCase())}`;
 
-                        <TextInput
-                            name={"websiteName"}
-                            value={formObj.websiteName ?? ""}
-                            label={"What is your website name?"}
-                            placeHolder={"Website Name"}
-                            onChange={e => {
-                                formObjSet(prevObj => {
-                                    // @ts-ignore
-                                    prevObj.websiteName = e.target.value
-                                    if (prevObj.websiteName === "") prevObj.websiteName = null
+                            let type: "input" | "textArea" = "input"
+                            let required = false
 
-                                    return { ...prevObj }
-                                })
+                            const seenMoreInfo = moreFormInfoObj[eachKey]
 
-                            }}
-                            onBlur={() => { checkIfValid(formObj, "websiteName", userFormSchema) }}
-                            errors={formErrors["websiteName"] ?? undefined}
-                        />
+                            if (seenMoreInfo !== undefined) {
+                                if (seenMoreInfo.label !== undefined) {
+                                    label = seenMoreInfo.label
+                                }
 
-                        <TextInput
-                            name={"websiteTagline"}
-                            value={formObj.websiteTagline ?? ""}
-                            label={"What is your website tagline? (optional)"}
-                            placeHolder={"Website Tagline"}
-                            onChange={e => {
-                                formObjSet(prevObj => {
-                                    // @ts-ignore
-                                    prevObj.websiteTagline = e.target.value
-                                    if (prevObj.websiteTagline === "") prevObj.websiteTagline = null
+                                if (seenMoreInfo.placeHolder !== undefined) {
+                                    placeHolder = seenMoreInfo.placeHolder
+                                }
 
-                                    return { ...prevObj }
-                                })
+                                if (seenMoreInfo.type !== undefined) {
+                                    type = seenMoreInfo.type
+                                }
 
-                            }}
-                            onBlur={() => { checkIfValid(formObj, "websiteTagline", userFormSchema) }}
-                            errors={formErrors["websiteTagline"] ?? undefined}
-                        />
+                                if (seenMoreInfo.required !== undefined) {
+                                    required = seenMoreInfo.required
+                                }
+                            }
 
-                        <TextInput
-                            name={"targetAudience"}
-                            value={formObj.targetAudience ?? ""}
-                            label={"Who is your target audience? (optional)"}
-                            placeHolder={"Target Audience"}
-                            onChange={e => {
-                                formObjSet(prevObj => {
-                                    // @ts-ignore
-                                    prevObj.targetAudience = e.target.value
-                                    if (prevObj.targetAudience === "") prevObj.targetAudience = null
+                            return (
+                                <React.Fragment key={eachKey}>
+                                    {type === "input" && (
+                                        <TextInput
+                                            label={label === undefined ? undefined : `${label} ${!required && "(optional)"}`}
+                                            name={eachKey}
+                                            value={formObj[eachKey] ?? ""}
+                                            placeHolder={placeHolder}
+                                            onChange={e => {
+                                                formObjSet(prevObj => {
+                                                    // @ts-ignore
+                                                    prevObj[eachKey] = e.target.value
 
-                                    return { ...prevObj }
-                                })
+                                                    return { ...prevObj }
+                                                })
+                                            }}
+                                            onBlur={() => {
+                                                checkIfValid(formObj, eachKey, userFormSchema)
+                                            }}
+                                            errors={formErrors[eachKey]}
+                                        />
+                                    )}
 
-                            }}
-                            onBlur={() => { checkIfValid(formObj, "targetAudience", userFormSchema) }}
-                            errors={formErrors["targetAudience"] ?? undefined}
-                        />
+                                    {type === "textArea" && (
+                                        <TextAreaInput
+                                            label={label === undefined ? undefined : `${label} ${!required && "(optional)"}`}
+                                            name={eachKey}
+                                            value={formObj[eachKey] ?? ""}
+                                            placeHolder={placeHolder}
+                                            onInput={e => {
+                                                formObjSet(prevObj => {
+                                                    // @ts-ignore
+                                                    prevObj[eachKey] = e.target.value
 
-                        <TextAreaInput
-                            name={"siteContent"}
-                            value={formObj.siteContent ?? ""}
-                            label={"Site Content? (optional)"}
-                            placeHolder={"Please list out the pages you would like: home, services, contact, etc...) and any specific copy for each page. If you aren't sure, no worries we can discuss further."}
-                            onInput={e => {
-                                formObjSet(prevObj => {
-                                    // @ts-ignore
-                                    prevObj.siteContent = e.target.value
-                                    if (prevObj.siteContent === "") prevObj.siteContent = null
-
-                                    return { ...prevObj }
-                                })
-
-                            }}
-                            onBlur={() => { checkIfValid(formObj, "siteContent", userFormSchema) }}
-                            errors={formErrors["siteContent"] ?? undefined}
-                        />
-
-                        <TextInput
-                            name={"socialMediaLinks"}
-                            value={formObj.socialMediaLinks ?? ""}
-                            label={"social Media Links (optional)"}
-                            placeHolder={"Any social media links"}
-                            onChange={e => {
-                                formObjSet(prevObj => {
-                                    // @ts-ignore
-                                    prevObj.socialMediaLinks = e.target.value
-                                    if (prevObj.socialMediaLinks === "") prevObj.socialMediaLinks = null
-
-                                    return { ...prevObj }
-                                })
-
-                            }}
-                            onBlur={() => { checkIfValid(formObj, "socialMediaLinks", userFormSchema) }}
-                            errors={formErrors["socialMediaLinks"] ?? undefined}
-                        />
-
-                        <TextAreaInput
-                            name={"keyFeatures"}
-                            value={formObj.keyFeatures ?? ""}
-                            label={"What key features do you envision for your website? (optional)"}
-                            placeHolder={"Key Features"}
-                            onInput={e => {
-                                formObjSet(prevObj => {
-                                    // @ts-ignore
-                                    prevObj.keyFeatures = e.target.value
-                                    if (prevObj.keyFeatures === "") prevObj.keyFeatures = null
-
-                                    return { ...prevObj }
-                                })
-
-                            }}
-                            onBlur={() => { checkIfValid(formObj, "keyFeatures", userFormSchema) }}
-                            errors={formErrors["keyFeatures"] ?? undefined}
-                        />
-
-                        <TextAreaInput
-                            name={"designPreference"}
-                            value={formObj.designPreference ?? ""}
-                            label={"Do you have any specific design preferences or branding guidelines? (Fonts/Colors) (optional)"}
-                            placeHolder={"Design Preference"}
-                            onInput={e => {
-                                formObjSet(prevObj => {
-                                    // @ts-ignore
-                                    prevObj.designPreference = e.target.value
-                                    if (prevObj.designPreference === "") prevObj.designPreference = null
-
-                                    return { ...prevObj }
-                                })
-
-                            }}
-                            onBlur={() => { checkIfValid(formObj, "designPreference", userFormSchema) }}
-                            errors={formErrors["designPreference"] ?? undefined}
-                        />
-
-                        <TextInput
-                            name={"thirdPartyIntegrations"}
-                            value={formObj.thirdPartyIntegrations ?? ""}
-                            label={"Are there any third-party integrations needed (e.g., CRM systems, payment gateways)? (optional)"}
-                            placeHolder={"Third Party Integrations - list if present"}
-                            onChange={e => {
-                                formObjSet(prevObj => {
-                                    // @ts-ignore
-                                    prevObj.thirdPartyIntegrations = e.target.value
-                                    if (prevObj.thirdPartyIntegrations === "") prevObj.thirdPartyIntegrations = null
-
-                                    return { ...prevObj }
-                                })
-
-                            }}
-                            onBlur={() => { checkIfValid(formObj, "thirdPartyIntegrations", userFormSchema) }}
-                            errors={formErrors["thirdPartyIntegrations"] ?? undefined}
-                        />
-
-                        <TextInput
-                            name={"hostingPreferences"}
-                            value={formObj.hostingPreferences ?? ""}
-                            label={"Do you have any specific requirements for hosting? (optional)"}
-                            placeHolder={"Hosting Preferences"}
-                            onChange={e => {
-                                formObjSet(prevObj => {
-                                    // @ts-ignore
-                                    prevObj.hostingPreferences = e.target.value
-                                    if (prevObj.hostingPreferences === "") prevObj.hostingPreferences = null
-
-                                    return { ...prevObj }
-                                })
-
-                            }}
-                            onBlur={() => { checkIfValid(formObj, "hostingPreferences", userFormSchema) }}
-                            errors={formErrors["hostingPreferences"] ?? undefined}
-                        />
-
-                        <TextInput
-                            name={"desiredTimeline"}
-                            value={formObj.desiredTimeline ?? ""}
-                            label={"What is your desired timeline for the project? (optional)"}
-                            placeHolder={"Desired Timeline"}
-                            onChange={e => {
-                                formObjSet(prevObj => {
-                                    // @ts-ignore
-                                    prevObj.desiredTimeline = e.target.value
-                                    if (prevObj.desiredTimeline === "") prevObj.desiredTimeline = null
-
-                                    return { ...prevObj }
-                                })
-
-                            }}
-                            onBlur={() => { checkIfValid(formObj, "desiredTimeline", userFormSchema) }}
-                            errors={formErrors["desiredTimeline"] ?? undefined}
-                        />
-
-                        <TextInput
-                            name={"budget"}
-                            value={formObj.budget ?? ""}
-                            label={"What is your budget for the website project? (optional)"}
-                            placeHolder={"Budget"}
-                            onChange={e => {
-                                formObjSet(prevObj => {
-                                    // @ts-ignore
-                                    prevObj.budget = e.target.value
-                                    if (prevObj.budget === "") prevObj.budget = null
-
-                                    return { ...prevObj }
-                                })
-
-                            }}
-                            onBlur={() => { checkIfValid(formObj, "budget", userFormSchema) }}
-                            errors={formErrors["budget"] ?? undefined}
-                        />
-
-                        <TextAreaInput
-                            name={"additionalComments"}
-                            value={formObj.additionalComments ?? ""}
-                            label={"Do you have any additional comments or specific requirements for the website? (optional)"}
-                            placeHolder={"Additional Comments"}
-                            onInput={e => {
-                                formObjSet(prevObj => {
-                                    // @ts-ignore
-                                    prevObj.additionalComments = e.target.value
-                                    if (prevObj.additionalComments === "") prevObj.additionalComments = null
-
-                                    return { ...prevObj }
-                                })
-
-                            }}
-                            onBlur={() => { checkIfValid(formObj, "additionalComments", userFormSchema) }}
-                            errors={formErrors["additionalComments"] ?? undefined}
-                        />
+                                                    return { ...prevObj }
+                                                })
+                                            }}
+                                            onBlur={() => { checkIfValid(formObj, eachKey, userFormSchema) }}
+                                            errors={formErrors[eachKey]}
+                                        />
+                                    )}
+                                </React.Fragment>
+                            )
+                        })}
                     </>
+                    // <>
+                    //     <TextInput
+                    //         name={"primaryPurpose"}
+                    //         value={formObj.primaryPurpose ?? ""}
+                    //         label={"What is the primary purpose of your website? (optional)"}
+                    //         placeHolder={"Primary Purpose"}
+                    //         onChange={e => {
+                    //             formObjSet(prevObj => {
+                    //                 // @ts-ignore
+                    //                 prevObj.primaryPurpose = e.target.value
+                    //                 if (prevObj.primaryPurpose === "") prevObj.primaryPurpose = null
+
+                    //                 return { ...prevObj }
+                    //             })
+
+                    //         }}
+                    //         onBlur={() => { checkIfValid(formObj, "primaryPurpose", userFormSchema) }}
+                    //         errors={formErrors["primaryPurpose"] ?? undefined}
+                    //     />
+
+                    //     <TextInput
+                    //         name={"websiteName"}
+                    //         value={formObj.websiteName ?? ""}
+                    //         label={"What is your website name?"}
+                    //         placeHolder={"Website Name"}
+                    //         onChange={e => {
+                    //             formObjSet(prevObj => {
+                    //                 // @ts-ignore
+                    //                 prevObj.websiteName = e.target.value
+                    //                 if (prevObj.websiteName === "") prevObj.websiteName = null
+
+                    //                 return { ...prevObj }
+                    //             })
+
+                    //         }}
+                    //         onBlur={() => { checkIfValid(formObj, "websiteName", userFormSchema) }}
+                    //         errors={formErrors["websiteName"] ?? undefined}
+                    //     />
+
+                    //     <TextInput
+                    //         name={"websiteTagline"}
+                    //         value={formObj.websiteTagline ?? ""}
+                    //         label={"What is your website tagline? (optional)"}
+                    //         placeHolder={"Website Tagline"}
+                    //         onChange={e => {
+                    //             formObjSet(prevObj => {
+                    //                 // @ts-ignore
+                    //                 prevObj.websiteTagline = e.target.value
+                    //                 if (prevObj.websiteTagline === "") prevObj.websiteTagline = null
+
+                    //                 return { ...prevObj }
+                    //             })
+
+                    //         }}
+                    //         onBlur={() => { checkIfValid(formObj, "websiteTagline", userFormSchema) }}
+                    //         errors={formErrors["websiteTagline"] ?? undefined}
+                    //     />
+
+                    //     <TextInput
+                    //         name={"targetAudience"}
+                    //         value={formObj.targetAudience ?? ""}
+                    //         label={"Who is your target audience? (optional)"}
+                    //         placeHolder={"Target Audience"}
+                    //         onChange={e => {
+                    //             formObjSet(prevObj => {
+                    //                 // @ts-ignore
+                    //                 prevObj.targetAudience = e.target.value
+                    //                 if (prevObj.targetAudience === "") prevObj.targetAudience = null
+
+                    //                 return { ...prevObj }
+                    //             })
+
+                    //         }}
+                    //         onBlur={() => { checkIfValid(formObj, "targetAudience", userFormSchema) }}
+                    //         errors={formErrors["targetAudience"] ?? undefined}
+                    //     />
+
+                    //     <TextAreaInput
+                    //         name={"siteContent"}
+                    //         value={formObj.siteContent ?? ""}
+                    //         label={"Site Content? (optional)"}
+                    //         placeHolder={"Please list out the pages you would like: home, services, contact, etc...) and any specific copy for each page. If you aren't sure, no worries we can discuss further."}
+                    //         onInput={e => {
+                    //             formObjSet(prevObj => {
+                    //                 // @ts-ignore
+                    //                 prevObj.siteContent = e.target.value
+                    //                 if (prevObj.siteContent === "") prevObj.siteContent = null
+
+                    //                 return { ...prevObj }
+                    //             })
+
+                    //         }}
+                    //         onBlur={() => { checkIfValid(formObj, "siteContent", userFormSchema) }}
+                    //         errors={formErrors["siteContent"] ?? undefined}
+                    //     />
+
+                    //     <TextInput
+                    //         name={"socialMediaLinks"}
+                    //         value={formObj.socialMediaLinks ?? ""}
+                    //         label={"social Media Links (optional)"}
+                    //         placeHolder={"Any social media links"}
+                    //         onChange={e => {
+                    //             formObjSet(prevObj => {
+                    //                 // @ts-ignore
+                    //                 prevObj.socialMediaLinks = e.target.value
+                    //                 if (prevObj.socialMediaLinks === "") prevObj.socialMediaLinks = null
+
+                    //                 return { ...prevObj }
+                    //             })
+
+                    //         }}
+                    //         onBlur={() => { checkIfValid(formObj, "socialMediaLinks", userFormSchema) }}
+                    //         errors={formErrors["socialMediaLinks"] ?? undefined}
+                    //     />
+
+                    //     <TextAreaInput
+                    //         name={"keyFeatures"}
+                    //         value={formObj.keyFeatures ?? ""}
+                    //         label={"What key features do you envision for your website? (optional)"}
+                    //         placeHolder={"Key Features"}
+                    //         onInput={e => {
+                    //             formObjSet(prevObj => {
+                    //                 // @ts-ignore
+                    //                 prevObj.keyFeatures = e.target.value
+                    //                 if (prevObj.keyFeatures === "") prevObj.keyFeatures = null
+
+                    //                 return { ...prevObj }
+                    //             })
+
+                    //         }}
+                    //         onBlur={() => { checkIfValid(formObj, "keyFeatures", userFormSchema) }}
+                    //         errors={formErrors["keyFeatures"] ?? undefined}
+                    //     />
+
+                    //     <TextAreaInput
+                    //         name={"designPreference"}
+                    //         value={formObj.designPreference ?? ""}
+                    //         label={"Do you have any specific design preferences or branding guidelines? (Fonts/Colors) (optional)"}
+                    //         placeHolder={"Design Preference"}
+                    //         onInput={e => {
+                    //             formObjSet(prevObj => {
+                    //                 // @ts-ignore
+                    //                 prevObj.designPreference = e.target.value
+                    //                 if (prevObj.designPreference === "") prevObj.designPreference = null
+
+                    //                 return { ...prevObj }
+                    //             })
+
+                    //         }}
+                    //         onBlur={() => { checkIfValid(formObj, "designPreference", userFormSchema) }}
+                    //         errors={formErrors["designPreference"] ?? undefined}
+                    //     />
+
+                    //     <TextInput
+                    //         name={"thirdPartyIntegrations"}
+                    //         value={formObj.thirdPartyIntegrations ?? ""}
+                    //         label={"Are there any third-party integrations needed (e.g., CRM systems, payment gateways)? (optional)"}
+                    //         placeHolder={"Third Party Integrations - list if present"}
+                    //         onChange={e => {
+                    //             formObjSet(prevObj => {
+                    //                 // @ts-ignore
+                    //                 prevObj.thirdPartyIntegrations = e.target.value
+                    //                 if (prevObj.thirdPartyIntegrations === "") prevObj.thirdPartyIntegrations = null
+
+                    //                 return { ...prevObj }
+                    //             })
+
+                    //         }}
+                    //         onBlur={() => { checkIfValid(formObj, "thirdPartyIntegrations", userFormSchema) }}
+                    //         errors={formErrors["thirdPartyIntegrations"] ?? undefined}
+                    //     />
+
+                    //     <TextInput
+                    //         name={"hostingPreferences"}
+                    //         value={formObj.hostingPreferences ?? ""}
+                    //         label={"Do you have any specific requirements for hosting? (optional)"}
+                    //         placeHolder={"Hosting Preferences"}
+                    //         onChange={e => {
+                    //             formObjSet(prevObj => {
+                    //                 // @ts-ignore
+                    //                 prevObj.hostingPreferences = e.target.value
+                    //                 if (prevObj.hostingPreferences === "") prevObj.hostingPreferences = null
+
+                    //                 return { ...prevObj }
+                    //             })
+
+                    //         }}
+                    //         onBlur={() => { checkIfValid(formObj, "hostingPreferences", userFormSchema) }}
+                    //         errors={formErrors["hostingPreferences"] ?? undefined}
+                    //     />
+
+                    //     <TextInput
+                    //         name={"desiredTimeline"}
+                    //         value={formObj.desiredTimeline ?? ""}
+                    //         label={"What is your desired timeline for the project? (optional)"}
+                    //         placeHolder={"Desired Timeline"}
+                    //         onChange={e => {
+                    //             formObjSet(prevObj => {
+                    //                 // @ts-ignore
+                    //                 prevObj.desiredTimeline = e.target.value
+                    //                 if (prevObj.desiredTimeline === "") prevObj.desiredTimeline = null
+
+                    //                 return { ...prevObj }
+                    //             })
+
+                    //         }}
+                    //         onBlur={() => { checkIfValid(formObj, "desiredTimeline", userFormSchema) }}
+                    //         errors={formErrors["desiredTimeline"] ?? undefined}
+                    //     />
+
+                    //     <TextInput
+                    //         name={"budget"}
+                    //         value={formObj.budget ?? ""}
+                    //         label={"What is your budget for the website project? (optional)"}
+                    //         placeHolder={"Budget"}
+                    //         onChange={e => {
+                    //             formObjSet(prevObj => {
+                    //                 // @ts-ignore
+                    //                 prevObj.budget = e.target.value
+                    //                 if (prevObj.budget === "") prevObj.budget = null
+
+                    //                 return { ...prevObj }
+                    //             })
+
+                    //         }}
+                    //         onBlur={() => { checkIfValid(formObj, "budget", userFormSchema) }}
+                    //         errors={formErrors["budget"] ?? undefined}
+                    //     />
+
+                    //     <TextAreaInput
+                    //         name={"additionalComments"}
+                    //         value={formObj.additionalComments ?? ""}
+                    //         label={"Do you have any additional comments or specific requirements for the website? (optional)"}
+                    //         placeHolder={"Additional Comments"}
+                    //         onInput={e => {
+                    //             formObjSet(prevObj => {
+                    //                 // @ts-ignore
+                    //                 prevObj.additionalComments = e.target.value
+                    //                 if (prevObj.additionalComments === "") prevObj.additionalComments = null
+
+                    //                 return { ...prevObj }
+                    //             })
+
+                    //         }}
+                    //         onBlur={() => { checkIfValid(formObj, "additionalComments", userFormSchema) }}
+                    //         errors={formErrors["additionalComments"] ?? undefined}
+                    //     />
+                    // </>
                 } />
             </div>
 
