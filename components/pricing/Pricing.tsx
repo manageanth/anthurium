@@ -25,11 +25,11 @@ export default function Pricing() {
                             {
                                 name: "Maintenance"
                             },
+                            // {
+                            //     name: "Marketing"
+                            // },
                             {
-                                name: "Marketing"
-                            },
-                            {
-                                name: "Hosting"
+                                name: "Hosting Support"
                             }
                         ].map((each, eachIndex) => {
                             return (
@@ -57,6 +57,8 @@ export default function Pricing() {
 
                 {viewingMore && (
                     <div className={styles.morePricingCont}>
+                        <p style={{ maxWidth: "75ch", marginTop: "1rem" }}>Price varies on invoice for domain name purchasing, database rentals, hosting costs</p>
+
                         <h3 className='supportingTitle2'>Maintenance</h3>
 
                         <ul className={styles.ruleCont}>
@@ -79,6 +81,10 @@ export default function Pricing() {
                                 },
                                 {
                                     rule: "Adding a section",
+                                    price: 20
+                                },
+                                {
+                                    rule: "Editing the database",
                                     price: 20
                                 },
                             ].map((each, eachIndex) => {
@@ -148,6 +154,21 @@ export default function Pricing() {
 
                         <h3 className='supportingTitle2'>Independent Hosting Support</h3>
                         <p><span style={{ color: "var(--tertiaryColor)", fontWeight: "var(--mediumFontWeight)" }}>Free assistance </span>when setting up your own hosting solution.</p>
+
+                        <h3 className='supportingTitle2'>Brand Creation</h3>
+                        <ul className={styles.ruleCont}>
+                            <li>
+                                Full Package - Logos / Slogans / Brand Guide
+
+                                <p className={styles.price}>
+                                    <span style={{ alignSelf: "flex-start" }} className="material-symbols-outlined">
+                                        attach_money
+                                    </span>
+
+                                    {250}
+                                </p>
+                            </li>
+                        </ul>
                     </div>
                 )}
             </div>
