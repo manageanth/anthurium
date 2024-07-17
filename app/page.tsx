@@ -17,6 +17,11 @@ import ShowService from '@/components/services/ShowService'
 import AnimateIntroText from '@/components/animateIntroText/AnimateIntroText'
 import AboutUs from '@/components/aboutUs/AboutUs'
 
+//custom mobile development prices
+//Choose your own price - features 
+//contact sales prices - for each plan
+//domain name, database rental, Hosting cost, Features - Email List, Appointment scheduling, 
+
 export default function Home() {
   return (
     <main>

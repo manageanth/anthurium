@@ -52,7 +52,7 @@ export default function Pricing() {
                         <span style={{ fontSize: "var(--largeIconSize)" }} className="material-symbols-outlined closeButton">
                             close
                         </span>
-                    ) : <p className={"hoverUnderline"} style={{ color: "var(--tertiaryColor)" }}>Learn More</p>}
+                    ) : <p className={"hoverUnderline"} style={{ color: "var(--tertiaryColor)" }}>Show Details</p>}
                 </button>
 
                 {viewingMore && (
