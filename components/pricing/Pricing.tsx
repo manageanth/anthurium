@@ -165,7 +165,7 @@ export default function Pricing() {
                                         attach_money
                                     </span>
 
-                                    {250}
+                                    {300}
                                 </p>
                             </li>
                         </ul>
